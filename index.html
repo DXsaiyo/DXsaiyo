@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>ENGINEER RECRUITING｜株式会社フェローシップ｜エンドクライアント直案件で、キャリアを自分の手に</title>
-<meta name="description" content="株式会社フェローシップのエンジニア採用。エンドクライアント直案件が豊富で、専任キャリア支援担当が寄り添う正社員雇用。年収450万〜1,000万円、残業月5h以下、年間休日123日。"/>
+<meta name="description" content="株式会社フェローシップのエンジニア採用。エンドクライアント直案件が豊富で、専任キャリア支援担当が寄り添う正社員雇用。年間休日123日、創業以来年平均成長率27.5%、2028年上場目標。"/>
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,7 +41,7 @@ details[open] .acc-icon{transform:rotate(45deg)}
 .eyebrow{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.35em;color:#00A8CC;font-weight:600;text-transform:uppercase}
 @media(max-width:640px){.hero-h1{font-size:2.2rem!important;line-height:1.15!important}}
 
-/* ── Code block (fixed layout, no weird characters) ── */
+/* ── Code block ── */
 .code-window{background:#0A1628;border:1px solid rgba(255,255,255,.1);border-radius:16px;box-shadow:0 20px 60px -20px rgba(0,0,0,.6)}
 .code-header{display:flex;align-items:center;gap:6px;padding:14px 18px;border-bottom:1px solid rgba(255,255,255,.1)}
 .code-header .dot{width:10px;height:10px;border-radius:50%}
@@ -54,9 +54,27 @@ details[open] .acc-icon{transform:rotate(45deg)}
 .caret{display:inline-block;color:#00E5FF;animation:blink 1.1s step-end infinite}
 @keyframes blink{0%,49%{opacity:1}50%,100%{opacity:0}}
 
-/* ── Logo helper ── */
+/* ── Logo ── */
 .fs-logo-img{display:block;height:38px;width:auto;object-fit:contain}
 .fs-logo-img-lg{display:block;height:56px;width:auto;object-fit:contain}
+
+/* ── Growth Chart ── */
+.growth-chart{display:flex;align-items:flex-end;justify-content:space-between;height:280px;gap:4px;padding:0 4px;position:relative}
+.growth-chart-wrap{position:relative}
+.growth-bar{flex:1;background:linear-gradient(180deg,#4FC8E0 0%,#00A8CC 100%);border-radius:3px 3px 0 0;position:relative;min-height:4px;transition:all .3s ease}
+.growth-bar.future{background:linear-gradient(180deg,rgba(79,200,224,.4) 0%,rgba(0,168,204,.3) 100%);border:1px dashed #00A8CC}
+.growth-bar-label{position:absolute;top:-26px;left:50%;transform:translateX(-50%);font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:700;color:#00708A;white-space:nowrap}
+.growth-bar-year{position:absolute;bottom:-22px;left:50%;transform:translateX(-50%);font-family:'JetBrains Mono',monospace;font-size:9px;color:#4A5A72;white-space:nowrap;transform-origin:center;transform:translateX(-50%) rotate(-45deg);bottom:-30px}
+.growth-arrow{position:absolute;top:0;right:6%;font-size:40px;color:#00A8CC;transform:rotate(-30deg);opacity:.5;pointer-events:none}
+
+/* ── Jobs Filter ── */
+.job-chip{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border-radius:999px;font-size:12px;font-weight:700;border:1.5px solid #E4E8EF;background:#fff;color:#4A5A72;cursor:pointer;transition:all .2s ease;white-space:nowrap}
+.job-chip:hover{border-color:#00A8CC;color:#00708A;background:#E6F8FC}
+.job-chip.active{background:#00A8CC;color:#fff;border-color:#00A8CC;box-shadow:0 4px 12px -4px rgba(0,168,204,.5)}
+.job-card{transition:all .25s ease}
+.job-card.hidden{display:none}
+.job-meta-chip{display:inline-block;font-size:10px;font-family:'JetBrains Mono',monospace;padding:2px 8px;border-radius:4px;background:#F5F7FA;color:#1F2B40;margin-right:4px;margin-bottom:4px}
+.job-salary{font-family:'Zen Kaku Gothic New',sans-serif;font-weight:900;color:#00708A}
 </style>
 </head>
 <body class="bg-white text-ink-700">
@@ -65,17 +83,14 @@ details[open] .acc-icon{transform:rotate(45deg)}
 <header class="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-white/80 border-b border-ink-100">
   <div class="max-w-7xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between">
     <a href="#" aria-label="Fellowship" class="flex items-center">
-      <!-- ロゴ: 公式画像を直接使用 -->
       <img class="fs-logo-img" src="https://www.f-ship.jp/_img/ja/resource/3/logo/_/" alt="Fellowship BUILD A GLOBAL CAREER" width="200" height="38"
-           onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/dxsaiyo/freelanceDX/main/img/logo.png';this.onerror=function(){this.style.display='none';this.nextElementSibling.style.display='inline-flex';}"/>
-      <span style="display:none;align-items:center;gap:6px;">
-        <span style="font-family:'Zen Kaku Gothic New',sans-serif;font-weight:900;font-size:24px;color:#111;letter-spacing:-.01em">Fellowship</span>
-      </span>
+           onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-flex';"/>
+      <span style="display:none;align-items:center;gap:6px;font-family:'Zen Kaku Gothic New',sans-serif;font-weight:900;font-size:24px;color:#111;">Fellowship</span>
     </a>
     <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-ink-700">
       <a href="#why" class="hover:text-brand-500 transition">選ばれる理由</a>
       <a href="#career" class="hover:text-brand-500 transition">キャリアパス</a>
-      <a href="#projects" class="hover:text-brand-500 transition">案件例</a>
+      <a href="#jobs" class="hover:text-brand-500 transition">案件一覧</a>
       <a href="#requirements" class="hover:text-brand-500 transition">募集要項</a>
       <a href="#faq" class="hover:text-brand-500 transition">FAQ</a>
     </nav>
@@ -119,16 +134,16 @@ details[open] .acc-icon{transform:rotate(45deg)}
         </div>
         <div class="mt-14 grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 max-w-3xl">
           <div class="border-l-2 border-neon/60 pl-3">
-            <div class="font-display font-black text-2xl lg:text-3xl text-white">450<span class="text-lg">–</span>1,000<span class="text-sm font-medium ml-0.5">万円</span></div>
+            <div class="font-display font-black text-2xl lg:text-3xl text-white">450<span class="text-lg">–</span>1,200<span class="text-sm font-medium ml-0.5">万円</span></div>
             <div class="font-mono text-[10px] tracking-[.2em] text-white/60 mt-1">ANNUAL SALARY</div>
-          </div>
-          <div class="border-l-2 border-neon/60 pl-3">
-            <div class="font-display font-black text-2xl lg:text-3xl text-white">月5h<span class="text-sm font-medium ml-1">以下</span></div>
-            <div class="font-mono text-[10px] tracking-[.2em] text-white/60 mt-1">AVG. OVERTIME</div>
           </div>
           <div class="border-l-2 border-neon/60 pl-3">
             <div class="font-display font-black text-2xl lg:text-3xl text-white">123<span class="text-sm font-medium ml-1">日</span></div>
             <div class="font-mono text-[10px] tracking-[.2em] text-white/60 mt-1">HOLIDAYS / YEAR</div>
+          </div>
+          <div class="border-l-2 border-neon/60 pl-3">
+            <div class="font-display font-black text-2xl lg:text-3xl text-white">20<span class="text-sm font-medium ml-1">年</span></div>
+            <div class="font-mono text-[10px] tracking-[.2em] text-white/60 mt-1">SINCE 2004</div>
           </div>
           <div class="border-l-2 border-neon/60 pl-3">
             <div class="font-display font-black text-2xl lg:text-3xl text-white">2028<span class="text-sm font-medium ml-1">IPO</span></div>
@@ -136,7 +151,7 @@ details[open] .acc-icon{transform:rotate(45deg)}
           </div>
         </div>
       </div>
-      <!-- コード風ディスプレイ -->
+      <!-- コードディスプレイ -->
       <div class="lg:col-span-5 hidden lg:block">
         <div class="relative">
           <div class="absolute -inset-4 bg-gradient-to-br from-neon/30 via-brand-400/20 to-transparent rounded-2xl blur-2xl"></div>
@@ -172,8 +187,60 @@ details[open] .acc-icon{transform:rotate(45deg)}
   </div>
 </section>
 
-<!-- ========== CLIENT CATEGORIES ========== -->
+<!-- ========== GROWTH ========== -->
 <section class="py-14 lg:py-20 bg-white border-b border-ink-100">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="grid lg:grid-cols-12 gap-10 items-center">
+      <div class="lg:col-span-4">
+        <p class="eyebrow mb-3">COMPANY GROWTH</p>
+        <h2 class="font-display font-black text-3xl sm:text-4xl text-ink-900 leading-tight mb-5">創業以来<br/><span class="text-brand-500">年平均成長率<br/>27.5%</span>の急成長企業。</h2>
+        <p class="text-ink-500 text-sm leading-relaxed mb-5">
+          2004年の創業以来、20年間にわたり人材サービス市場で着実に事業を拡大。FY2024は売上高43.4億円、FY2025は48.2億円の想定で、<strong class="text-ink-900">2028年の上場を目標</strong>に急成長中です。
+        </p>
+        <p class="text-xs text-ink-500 leading-relaxed">
+          無借金経営による財務基盤の盤石さと、ベンチャー的成長の両立。<br/>
+          あなたのキャリアを乗せるのにふさわしい"伸びている船"です。
+        </p>
+      </div>
+      <div class="lg:col-span-8">
+        <div class="growth-chart-wrap bg-ink-50 rounded-2xl p-6 pb-10 border border-ink-100">
+          <div class="growth-chart">
+            <!-- 2004-2025 Bars (all %: height relative to 4821=100) -->
+            <div class="growth-bar" style="height:0.7%"><span class="growth-bar-label">33</span><span class="growth-bar-year">FY2004</span></div>
+            <div class="growth-bar" style="height:4.6%"><span class="growth-bar-year">FY2005</span></div>
+            <div class="growth-bar" style="height:8.7%"><span class="growth-bar-year">FY2006</span></div>
+            <div class="growth-bar" style="height:9.8%"><span class="growth-bar-year">FY2007</span></div>
+            <div class="growth-bar" style="height:11.3%"><span class="growth-bar-year">FY2008</span></div>
+            <div class="growth-bar" style="height:9.0%"><span class="growth-bar-year">FY2009</span></div>
+            <div class="growth-bar" style="height:10.3%"><span class="growth-bar-year">FY2010</span></div>
+            <div class="growth-bar" style="height:12.2%"><span class="growth-bar-year">FY2011</span></div>
+            <div class="growth-bar" style="height:19.2%"><span class="growth-bar-year">FY2012</span></div>
+            <div class="growth-bar" style="height:22.8%"><span class="growth-bar-year">FY2013</span></div>
+            <div class="growth-bar" style="height:26.4%"><span class="growth-bar-year">FY2014</span></div>
+            <div class="growth-bar" style="height:27.9%"><span class="growth-bar-year">FY2015</span></div>
+            <div class="growth-bar" style="height:28.5%"><span class="growth-bar-year">FY2016</span></div>
+            <div class="growth-bar" style="height:32.3%"><span class="growth-bar-year">FY2017</span></div>
+            <div class="growth-bar" style="height:36.9%"><span class="growth-bar-year">FY2018</span></div>
+            <div class="growth-bar" style="height:43.5%"><span class="growth-bar-year">FY2019</span></div>
+            <div class="growth-bar" style="height:46.0%"><span class="growth-bar-year">FY2020</span></div>
+            <div class="growth-bar" style="height:58.8%"><span class="growth-bar-year">FY2021</span></div>
+            <div class="growth-bar" style="height:65.8%"><span class="growth-bar-year">FY2022</span></div>
+            <div class="growth-bar" style="height:81.1%"><span class="growth-bar-year">FY2023</span></div>
+            <div class="growth-bar" style="height:90.0%"><span class="growth-bar-label">4,338</span><span class="growth-bar-year">FY2024</span></div>
+            <div class="growth-bar future" style="height:100%"><span class="growth-bar-label">4,821</span><span class="growth-bar-year">FY2025</span></div>
+          </div>
+          <div class="flex justify-between items-center mt-10 text-xs text-ink-500">
+            <span class="font-mono">単位：百万円</span>
+            <span class="font-mono">Target IPO: FY2028</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CLIENT CATEGORIES ========== -->
+<section class="py-14 lg:py-20 bg-ink-50">
   <div class="max-w-7xl mx-auto px-5 sm:px-8">
     <div class="text-center mb-12">
       <p class="eyebrow mb-3">WHERE YOU'LL WORK</p>
@@ -181,29 +248,29 @@ details[open] .acc-icon{transform:rotate(45deg)}
       <p class="text-sm text-ink-500 mt-3 max-w-2xl mx-auto leading-relaxed">BtoCのメガサービス、人気IPのゲーム開発、大手Enterpriseの基幹DX、グローバルプラットフォーム──。<br/>フェローシップは4つの領域で、エンドクライアントとの直接取引を保有しています。</p>
     </div>
     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-      <div class="relative p-6 rounded-2xl border border-ink-100 bg-gradient-to-br from-white to-brand-50/40 card-hover">
+      <div class="relative p-6 rounded-2xl border border-ink-100 bg-white card-hover">
         <div class="inline-flex items-center justify-center w-11 h-11 rounded-xl bg-brand-500 text-white mb-4 text-2xl">🌐</div>
         <h3 class="font-display font-bold text-base text-ink-900 mb-2 leading-snug">Webサービス・<br/>メガベンチャー・SaaS</h3>
         <p class="text-xs text-ink-500 leading-relaxed mb-3">大規模トラフィックを捌くBtoCプロダクトや、急成長中のB2B SaaS基盤の開発・運用に直接参画。</p>
-        <p class="text-[11px] font-mono text-ink-400 leading-relaxed">株式会社サイバーエージェント / 株式会社リクルート / 楽天グループ株式会社 / 株式会社メルカリ / 株式会社ディー・エヌ・エー / 株式会社LayerX / Sansan株式会社 / 株式会社ZEALS / 株式会社クラダシ 等</p>
+        <p class="text-[11px] font-mono text-ink-400 leading-relaxed">株式会社サイバーエージェント / 株式会社リクルート / 楽天グループ株式会社 / 株式会社メルカリ / 株式会社ディー・エヌ・エー / 株式会社LayerX / Sansan株式会社 等</p>
       </div>
-      <div class="relative p-6 rounded-2xl border border-ink-100 bg-gradient-to-br from-white to-brand-50/40 card-hover">
+      <div class="relative p-6 rounded-2xl border border-ink-100 bg-white card-hover">
         <div class="inline-flex items-center justify-center w-11 h-11 rounded-xl bg-brand-500 text-white mb-4 text-2xl">🎮</div>
         <h3 class="font-display font-bold text-base text-ink-900 mb-2 leading-snug">ゲーム・エンタメ・<br/>メディア</h3>
         <p class="text-xs text-ink-500 leading-relaxed mb-3">CMで見るような人気IPや、ハイエンドグラフィックの開発、映像配信プラットフォームまで幅広く。</p>
-        <p class="text-[11px] font-mono text-ink-400 leading-relaxed">株式会社Cygames / 株式会社セガ / 株式会社ポケモン / 合同会社DMM.com / ソニーグループ株式会社 / グリー株式会社 / ガンホー・オンライン・エンターテイメント株式会社 / 17LIVE株式会社 / 株式会社ミラティブ 等</p>
+        <p class="text-[11px] font-mono text-ink-400 leading-relaxed">株式会社Cygames / 株式会社セガ / 株式会社ポケモン / 合同会社DMM.com / ソニーグループ株式会社 / グリー株式会社 / 17LIVE株式会社 等</p>
       </div>
-      <div class="relative p-6 rounded-2xl border border-ink-100 bg-gradient-to-br from-white to-brand-50/40 card-hover">
+      <div class="relative p-6 rounded-2xl border border-ink-100 bg-white card-hover">
         <div class="inline-flex items-center justify-center w-11 h-11 rounded-xl bg-brand-500 text-white mb-4 text-2xl">🏗️</div>
         <h3 class="font-display font-bold text-base text-ink-900 mb-2 leading-snug">Enterprise・<br/>SIer・DX推進</h3>
         <p class="text-xs text-ink-500 leading-relaxed mb-3">金融・メーカー・通信などの基幹システム刷新や、業務プロセス改革（BPR）、全社DX推進の最前線。</p>
-        <p class="text-[11px] font-mono text-ink-400 leading-relaxed">富士通株式会社 / 株式会社日立製作所 / 日本電信電話株式会社（NTTグループ） / 株式会社野村総合研究所 / 株式会社SUBARU / トランスコスモス株式会社 / TIS株式会社 / 株式会社SHIFT / 株式会社システナ / 株式会社セラク / 株式会社プロビジョン 等</p>
+        <p class="text-[11px] font-mono text-ink-400 leading-relaxed">富士通株式会社 / 株式会社日立製作所 / 日本電信電話株式会社（NTTグループ） / 株式会社野村総合研究所 / 株式会社SUBARU / 株式会社SHIFT 等</p>
       </div>
-      <div class="relative p-6 rounded-2xl border border-ink-100 bg-gradient-to-br from-white to-brand-50/40 card-hover">
+      <div class="relative p-6 rounded-2xl border border-ink-100 bg-white card-hover">
         <div class="inline-flex items-center justify-center w-11 h-11 rounded-xl bg-brand-500 text-white mb-4 text-2xl">🌏</div>
         <h3 class="font-display font-bold text-base text-ink-900 mb-2 leading-snug">グローバル・<br/>外資系プラットフォーム</h3>
         <p class="text-xs text-ink-500 leading-relaxed mb-3">世界規模のサービス開発、多言語対応、グローバル案件に関わりたいエンジニアに。</p>
-        <p class="text-[11px] font-mono text-ink-400 leading-relaxed">ByteDance / Baidu Japan / Tencent / Tata Consultancy Services Japan / Alibaba Japan / OPPO / BYD / 中国建設銀行 東京支店 / Onedot 等</p>
+        <p class="text-[11px] font-mono text-ink-400 leading-relaxed">ByteDance / Baidu Japan / Tencent / Tata Consultancy Services Japan / Alibaba Japan / OPPO / BYD 等</p>
       </div>
     </div>
     <p class="text-center text-xs text-ink-400 mt-6">※ 記載企業は取引先の一部を業界カテゴリ別に示したものです。各社名称・ロゴは各社の商標です。</p>
@@ -250,17 +317,8 @@ details[open] .acc-icon{transform:rotate(45deg)}
       <div class="card-hover relative bg-white rounded-2xl p-8 border border-ink-100 overflow-hidden">
         <div class="absolute -top-10 -right-10 w-32 h-32 bg-brand-100/50 rounded-full blur-2xl"></div>
         <div class="relative">
-          <div class="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-br from-brand-500 to-brand-700 text-white mb-6 shadow-lg shadow-brand-500/20 text-2xl">📚</div>
-          <div class="font-mono text-[10px] tracking-[.3em] text-brand-500 mb-2">04 / DIVERSE EXPERIENCE</div>
-          <h3 class="font-display font-black text-xl text-ink-900 mb-3 leading-snug">多様な現場で<br/>スキルの頭打ちがない</h3>
-          <p class="text-ink-500 text-sm leading-relaxed">同じ現場で深く極めることも、別プロジェクトへ移って広げることも自由。Web／ゲーム／AI／組込／モビリティ──<strong class="text-ink-800">技術を偏らせない</strong>選択肢があります。</p>
-        </div>
-      </div>
-      <div class="card-hover relative bg-white rounded-2xl p-8 border border-ink-100 overflow-hidden">
-        <div class="absolute -top-10 -right-10 w-32 h-32 bg-brand-100/50 rounded-full blur-2xl"></div>
-        <div class="relative">
           <div class="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-br from-brand-500 to-brand-700 text-white mb-6 shadow-lg shadow-brand-500/20 text-2xl">🎓</div>
-          <div class="font-mono text-[10px] tracking-[.3em] text-brand-500 mb-2">05 / SKILL UP</div>
+          <div class="font-mono text-[10px] tracking-[.3em] text-brand-500 mb-2">04 / SKILL UP</div>
           <h3 class="font-display font-black text-xl text-ink-900 mb-3 leading-snug">300種超の資格支援<br/>＋無料eラーニング</h3>
           <p class="text-ink-500 text-sm leading-relaxed">AWS／Google Cloud認定ほか<strong class="text-ink-800">300種類以上</strong>の資格取得支援（受験料・書籍代）。有料eラーニング（Schoo、paiza）を無料開放。個別カスタマイズの育成カリキュラムで、現場で得られない+αを補います。</p>
         </div>
@@ -268,10 +326,84 @@ details[open] .acc-icon{transform:rotate(45deg)}
       <div class="card-hover relative bg-white rounded-2xl p-8 border border-ink-100 overflow-hidden">
         <div class="absolute -top-10 -right-10 w-32 h-32 bg-brand-100/50 rounded-full blur-2xl"></div>
         <div class="relative">
+          <div class="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-br from-brand-500 to-brand-700 text-white mb-6 shadow-lg shadow-brand-500/20 text-2xl">🚀</div>
+          <div class="font-mono text-[10px] tracking-[.3em] text-brand-500 mb-2">05 / TRANSFER SUPPORT</div>
+          <h3 class="font-display font-black text-xl text-ink-900 mb-3 leading-snug">顧客先への<br/>直接雇用も後押し</h3>
+          <p class="text-ink-500 text-sm leading-relaxed">現場で認められた実績と信頼をベースに、<strong class="text-ink-800">エンドクライアントへの転籍（直接雇用）</strong>を希望される場合も、フェローシップは背中を押します。送り出す人材の"その後のキャリア"まで考えるのが私たちの流儀です。</p>
+        </div>
+      </div>
+      <div class="card-hover relative bg-white rounded-2xl p-8 border border-ink-100 overflow-hidden">
+        <div class="absolute -top-10 -right-10 w-32 h-32 bg-brand-100/50 rounded-full blur-2xl"></div>
+        <div class="relative">
           <div class="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-br from-brand-500 to-brand-700 text-white mb-6 shadow-lg shadow-brand-500/20 text-2xl">🌿</div>
           <div class="font-mono text-[10px] tracking-[.3em] text-brand-500 mb-2">06 / WORK LIFE BALANCE</div>
-          <h3 class="font-display font-black text-xl text-ink-900 mb-3 leading-snug">残業月5h以下<br/>年間休日123日</h3>
-          <p class="text-ink-500 text-sm leading-relaxed">徹底した労務管理により、残業は月平均5時間以下を推奨。完全週休2日制（土日祝）、夏季休暇、年末年始、育休実績あり。<strong class="text-ink-800">副業OK（承認制）</strong>、服装・髪型自由。</p>
+          <h3 class="font-display font-black text-xl text-ink-900 mb-3 leading-snug">年間休日123日<br/>ワークライフバランス</h3>
+          <p class="text-ink-500 text-sm leading-relaxed">徹底した労務管理により、残業は月平均5〜10時間以下を推奨案件が中心。完全週休2日制（土日祝）、夏季休暇、年末年始、育休実績あり。<strong class="text-ink-800">副業OK（承認制）</strong>、服装・髪型自由。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== COMMUNITY / LEADER SYSTEM ========== -->
+<section class="py-20 lg:py-28 bg-ink-50">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="text-center mb-14 max-w-3xl mx-auto">
+      <p class="eyebrow mb-4">COMMUNITY</p>
+      <h2 class="font-display font-black text-4xl sm:text-5xl text-ink-900 leading-tight mb-5">顧客常駐でも、<br/><span class="text-brand-500">独りじゃない</span>。</h2>
+      <p class="text-ink-500 text-base lg:text-lg leading-relaxed">「客先常駐＝孤独」というイメージを覆す、フェローシップ独自のコミュニティ設計。<br/>他現場の仲間との横のつながりで、刺激と帰属意識と、市場価値の再発見が得られます。</p>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-6 lg:gap-8 mb-10">
+      <!-- リーダー制 -->
+      <div class="bg-white rounded-2xl p-8 border border-ink-100 shadow-sm">
+        <div class="flex items-center gap-4 mb-4">
+          <div class="w-14 h-14 rounded-xl bg-brand-500 text-white flex items-center justify-center text-2xl">👤</div>
+          <div>
+            <div class="font-mono text-[10px] tracking-[.25em] text-brand-500">SUPPORT STRUCTURE 01</div>
+            <h3 class="font-display font-bold text-xl text-ink-900">希望者優先 1on1（リーダー制）</h3>
+          </div>
+        </div>
+        <p class="text-sm text-ink-500 leading-relaxed mb-4">形式的な面談ではなく、<strong class="text-ink-800">「困った時にすぐ動く」サポート</strong>。本社の人材開発と連携し、アラート検知時の能動的フォローも実施。「キャリア相談したい」「現場の悩みを聞いてほしい」という要望には、リーダーが最優先で対応します。</p>
+        <ul class="space-y-1.5 text-sm text-ink-600">
+          <li class="flex gap-2"><span class="text-brand-500 font-bold">›</span>話したいメンバーに100%対応</li>
+          <li class="flex gap-2"><span class="text-brand-500 font-bold">›</span>現場では相談しにくいことを気軽に</li>
+          <li class="flex gap-2"><span class="text-brand-500 font-bold">›</span>メンター的役割のリーダー・サブリーダー体制</li>
+        </ul>
+      </div>
+
+      <!-- チーム交流会 -->
+      <div class="bg-white rounded-2xl p-8 border border-ink-100 shadow-sm">
+        <div class="flex items-center gap-4 mb-4">
+          <div class="w-14 h-14 rounded-xl bg-brand-500 text-white flex items-center justify-center text-2xl">👥</div>
+          <div>
+            <div class="font-mono text-[10px] tracking-[.25em] text-brand-500">SUPPORT STRUCTURE 02</div>
+            <h3 class="font-display font-bold text-xl text-ink-900">月次オンライン定例会＋交流会</h3>
+          </div>
+        </div>
+        <p class="text-sm text-ink-500 leading-relaxed mb-4">月1回のオンライン月次定例会の後、15分のチーム交流会を開催。他現場の社員と繋がり、<strong class="text-ink-800">刺激と帰属意識</strong>を得る場です。帰社日は設けていないため、出社負担ゼロで横のつながりが築けます。</p>
+        <ul class="space-y-1.5 text-sm text-ink-600">
+          <li class="flex gap-2"><span class="text-brand-500 font-bold">›</span>帰社日なし・オンライン中心で出社負担ゼロ</li>
+          <li class="flex gap-2"><span class="text-brand-500 font-bold">›</span>技術スタック・働き方の情報交換</li>
+          <li class="flex gap-2"><span class="text-brand-500 font-bold">›</span>趣味・推し活シェアで心理的安全性も確保</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Google Chat -->
+    <div class="bg-gradient-to-br from-brand-500 to-brand-700 rounded-2xl p-8 lg:p-10 text-white shadow-xl">
+      <div class="grid md:grid-cols-12 gap-6 items-center">
+        <div class="md:col-span-2 flex justify-center">
+          <div class="w-20 h-20 rounded-2xl bg-white/15 backdrop-blur flex items-center justify-center text-4xl border border-white/25">💬</div>
+        </div>
+        <div class="md:col-span-7">
+          <div class="font-mono text-[10px] tracking-[.3em] text-white/70 mb-2">TECH COMMUNITY</div>
+          <h3 class="font-display font-bold text-2xl leading-snug mb-2">Google Chatで、<br class="sm:hidden"/>技術者同士の横のつながり。</h3>
+          <p class="text-white/85 text-sm leading-relaxed">配属先が違っても、フェローシップの技術者全員が<strong class="text-white">Google Chatで常時つながっている</strong>環境。技術的な質問、現場のTips、最新ツール情報、資格勉強の相談──いつでも誰かが答えてくれる"社内Stack Overflow"のような場所です。</p>
+        </div>
+        <div class="md:col-span-3 grid grid-cols-2 gap-2 text-center">
+          <div class="bg-white/10 rounded-xl p-3 border border-white/20"><div class="font-display font-black text-xl text-white">24/7</div><div class="text-[10px] text-white/70">いつでも質問</div></div>
+          <div class="bg-white/10 rounded-xl p-3 border border-white/20"><div class="font-display font-black text-xl text-white">全員</div><div class="text-[10px] text-white/70">社員つながる</div></div>
         </div>
       </div>
     </div>
@@ -279,7 +411,7 @@ details[open] .acc-icon{transform:rotate(45deg)}
 </section>
 
 <!-- ========== EMPLOYMENT MODEL ========== -->
-<section class="py-20 lg:py-28 bg-ink-50">
+<section class="py-20 lg:py-28 bg-white">
   <div class="max-w-7xl mx-auto px-5 sm:px-8">
     <div class="text-center mb-14 max-w-3xl mx-auto">
       <p class="eyebrow mb-4">EMPLOYMENT MODEL</p>
@@ -287,29 +419,28 @@ details[open] .acc-icon{transform:rotate(45deg)}
       <p class="text-ink-500 text-base lg:text-lg leading-relaxed">フェローシップとの雇用契約はあくまで<strong class="text-ink-800">「期間の定めのない正社員」</strong>。その上で、業務の進め方はプロジェクトごとに、顧客の指揮命令下で行うか、当社の指揮命令下で行うかを柔軟に使い分けます。</p>
     </div>
 
-    <!-- 指揮命令系統 2パターン -->
     <div class="grid md:grid-cols-2 gap-6 lg:gap-8 mb-14">
-      <div class="bg-white rounded-2xl p-8 border border-ink-100 shadow-sm">
+      <div class="bg-ink-50 rounded-2xl p-8 border border-ink-100">
         <div class="flex items-center gap-3 mb-4">
           <div class="w-10 h-10 rounded-full bg-brand-500 text-white font-bold flex items-center justify-center">A</div>
           <h3 class="font-display font-bold text-lg text-ink-900">顧客指揮命令型</h3>
         </div>
         <p class="text-sm text-ink-500 leading-relaxed mb-4">顧客先（または在宅）にて、<strong class="text-ink-800">顧客の指揮命令のもと</strong>でプロジェクト業務を遂行。大手事業会社のチームに深く入り込み、要件定義から運用まで一貫して関与できるスタイルです。</p>
         <ul class="space-y-1.5 text-sm text-ink-600">
-          <li class="flex gap-2"><span class="text-brand-500 font-bold mt-0.5">✓</span>就業場所：顧客先（東京23区中心 / 神奈川）</li>
+          <li class="flex gap-2"><span class="text-brand-500 font-bold mt-0.5">✓</span>就業場所：顧客先（東京23区中心 / 神奈川）または在宅</li>
           <li class="flex gap-2"><span class="text-brand-500 font-bold mt-0.5">✓</span>チームの一員として上流工程から参画</li>
-          <li class="flex gap-2"><span class="text-brand-500 font-bold mt-0.5">✓</span>顧客ルールに応じたリモート（在宅）併用可</li>
+          <li class="flex gap-2"><span class="text-brand-500 font-bold mt-0.5">✓</span>顧客ルールに応じたリモート併用可</li>
         </ul>
       </div>
-      <div class="bg-white rounded-2xl p-8 border border-ink-100 shadow-sm">
+      <div class="bg-ink-50 rounded-2xl p-8 border border-ink-100">
         <div class="flex items-center gap-3 mb-4">
           <div class="w-10 h-10 rounded-full bg-brand-700 text-white font-bold flex items-center justify-center">B</div>
           <h3 class="font-display font-bold text-lg text-ink-900">当社指揮命令型（業務委託）</h3>
         </div>
-        <p class="text-sm text-ink-500 leading-relaxed mb-4">顧客先または在宅にて、<strong class="text-ink-800">当社の指揮命令のもと</strong>で業務を遂行。フェローシップのチームとして成果物に責任を持つスタイルで、AIコーディング等の新領域に多い形態です。</p>
+        <p class="text-sm text-ink-500 leading-relaxed mb-4">顧客先または在宅にて、<strong class="text-ink-800">当社の指揮命令のもと</strong>で業務を遂行。成果物に対して責任を持つスタイルで、AIコーディング等の新領域に多い形態です。</p>
         <ul class="space-y-1.5 text-sm text-ink-600">
-          <li class="flex gap-2"><span class="text-brand-500 font-bold mt-0.5">✓</span>就業場所：顧客先 or リモート（在宅）</li>
-          <li class="flex gap-2"><span class="text-brand-500 font-bold mt-0.5">✓</span>フェローシップのチームとして成果を定義</li>
+          <li class="flex gap-2"><span class="text-brand-500 font-bold mt-0.5">✓</span>就業場所：顧客先 or 在宅</li>
+          <li class="flex gap-2"><span class="text-brand-500 font-bold mt-0.5">✓</span>成果物に対してフェローシップが責任</li>
           <li class="flex gap-2"><span class="text-brand-500 font-bold mt-0.5">✓</span>AI／モダン開発案件に多い形態</li>
         </ul>
       </div>
@@ -348,11 +479,11 @@ details[open] .acc-icon{transform:rotate(45deg)}
               <td class="px-6 py-4 text-center"><span class="text-red-400 text-xl font-bold">✗</span><div class="text-xs mt-1">なし</div></td>
             </tr>
             <tr class="compare-row border-t border-ink-100">
-              <td class="px-6 py-4 font-bold text-ink-900">指揮命令系統の明確性</td>
-              <td class="px-6 py-4 text-center fs-highlight"><span class="text-brand-500 text-xl font-bold">✓</span><div class="text-xs mt-1 font-bold text-brand-700">プロジェクトごとに<br/>明確に定義</div></td>
-              <td class="px-6 py-4 text-center"><span class="text-ink-400 text-xl">✓</span><div class="text-xs mt-1">顧客先から</div></td>
-              <td class="px-6 py-4 text-center"><span class="text-amber-500 text-xl">△</span><div class="text-xs mt-1">曖昧なケース<br/>（偽装請負リスク）</div></td>
-              <td class="px-6 py-4 text-center"><span class="text-ink-300 text-xl">○</span><div class="text-xs mt-1">契約次第</div></td>
+              <td class="px-6 py-4 font-bold text-ink-900">横のつながり・コミュニティ</td>
+              <td class="px-6 py-4 text-center fs-highlight"><span class="text-brand-500 text-xl font-bold">✓</span><div class="text-xs mt-1 font-bold text-brand-700">リーダー制＋月次会<br/>Google Chat常時</div></td>
+              <td class="px-6 py-4 text-center"><span class="text-amber-500 text-xl">△</span><div class="text-xs mt-1">会社による</div></td>
+              <td class="px-6 py-4 text-center"><span class="text-red-400 text-xl font-bold">✗</span><div class="text-xs mt-1">孤立しがち</div></td>
+              <td class="px-6 py-4 text-center"><span class="text-red-400 text-xl font-bold">✗</span><div class="text-xs mt-1">完全に個人</div></td>
             </tr>
             <tr class="compare-row border-t border-ink-100">
               <td class="px-6 py-4 font-bold text-ink-900">専任キャリア支援</td>
@@ -391,13 +522,13 @@ details[open] .acc-icon{transform:rotate(45deg)}
 </section>
 
 <!-- ========== CAREER PATH ========== -->
-<section id="career" class="py-20 lg:py-28 bg-white relative overflow-hidden">
+<section id="career" class="py-20 lg:py-28 bg-gradient-to-b from-white to-brand-50/40 relative overflow-hidden">
   <div class="absolute top-20 right-0 w-96 h-96 rounded-full bg-brand-100/40 blur-3xl pointer-events-none"></div>
   <div class="relative max-w-7xl mx-auto px-5 sm:px-8">
     <div class="max-w-3xl mb-16">
       <p class="eyebrow mb-4">CAREER PATH</p>
       <h2 class="font-display font-black text-4xl sm:text-5xl text-ink-900 leading-tight mb-5">"常駐して終わり"に<br/><span class="text-brand-500">しないキャリア</span>を。</h2>
-      <p class="text-ink-500 text-lg leading-relaxed">フェローシップのエンジニアは、入社後3段階でキャリアを駆け上がります。<br/>手を動かし続ける道も、マネジメントへ進む道も、独立してフリーランスになる道も、すべて開かれています。</p>
+      <p class="text-ink-500 text-lg leading-relaxed">フェローシップのエンジニアは、入社後3段階でキャリアを駆け上がります。<br/>手を動かし続ける道、マネジメントへ進む道、独立してフリーランスになる道、本社で経営に関わる道──すべて開かれています。</p>
     </div>
     <div class="relative grid lg:grid-cols-3 gap-8 lg:gap-12">
       <div class="hidden lg:block absolute top-[72px] left-[12%] right-[12%] h-0.5 tl-line"></div>
@@ -411,7 +542,7 @@ details[open] .acc-icon{transform:rotate(45deg)}
             <div class="text-xs text-ink-500 mt-1">入社〜1年</div>
           </div>
         </div>
-        <div class="bg-gradient-to-br from-white to-ink-50 rounded-2xl p-6 border border-ink-100">
+        <div class="bg-white rounded-2xl p-6 border border-ink-100 shadow-sm">
           <h3 class="font-display font-bold text-lg text-ink-900 mb-3 flex items-center gap-2">🏃 現場で"個"の信頼を勝ち取る</h3>
           <p class="text-sm text-ink-500 leading-relaxed mb-4">大手事業会社やSIerのプロジェクトへ単独で参画。詳細設計〜実装・テストを担当し、<strong class="text-ink-800">「〇〇さんにお願いしたい」と言われる存在</strong>になることが第一歩です。</p>
           <ul class="space-y-1.5 text-sm text-ink-700">
@@ -431,7 +562,7 @@ details[open] .acc-icon{transform:rotate(45deg)}
             <div class="text-xs text-ink-500 mt-1">1年〜2年</div>
           </div>
         </div>
-        <div class="bg-gradient-to-br from-white to-ink-50 rounded-2xl p-6 border border-ink-100">
+        <div class="bg-white rounded-2xl p-6 border border-ink-100 shadow-sm">
           <h3 class="font-display font-bold text-lg text-ink-900 mb-3 flex items-center gap-2">⚙️ チーム体制を構築する</h3>
           <p class="text-sm text-ink-500 leading-relaxed mb-4">あなたの信頼を基盤に、フェローシップから若手メンバーを増員。「<strong class="text-ink-800">プレイングマネージャー</strong>」としてチームをリードし、OJT・育成を担います。</p>
           <ul class="space-y-1.5 text-sm text-ink-700">
@@ -447,31 +578,38 @@ details[open] .acc-icon{transform:rotate(45deg)}
           <div class="absolute inset-0 rounded-full bg-gradient-to-br from-neon/40 to-brand-400/30 blur-xl"></div>
           <div class="relative w-36 h-36 rounded-full bg-gradient-to-br from-brand-500 to-brand-700 border-2 border-neon flex flex-col items-center justify-center shadow-xl shadow-brand-500/30">
             <div class="font-mono text-[10px] tracking-[.3em] text-white/90 mb-1">STEP 03</div>
-            <div class="font-display font-black text-xl text-white leading-tight">3つの道</div>
+            <div class="font-display font-black text-xl text-white leading-tight">4つの道</div>
             <div class="text-xs text-white/80 mt-1">3年目以降</div>
           </div>
         </div>
         <div class="grid grid-cols-1 gap-3">
-          <div class="bg-gradient-to-br from-brand-500 to-brand-700 rounded-2xl p-5 text-white shadow-lg shadow-brand-500/20">
-            <div class="flex items-center gap-2 mb-2">
-              <span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-white text-brand-700 font-black text-xs">A</span>
-              <h3 class="font-display font-bold text-base">スペシャリスト／PMOルート</h3>
+          <div class="bg-gradient-to-br from-brand-500 to-brand-700 rounded-xl p-4 text-white shadow-md">
+            <div class="flex items-center gap-2 mb-1">
+              <span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-white text-brand-700 font-black text-[10px]">A</span>
+              <h3 class="font-display font-bold text-sm">スペシャリスト</h3>
             </div>
-            <p class="text-xs text-white/85 leading-relaxed">技術を深めるスペシャリスト、または<strong>PM/PMO</strong>・ITコンサルとして上流工程へ。手を動かし続ける道も、管理側に進む道も両方。</p>
+            <p class="text-[11px] text-white/85 leading-relaxed">手を動かす技術エキスパート。特定領域で"第一人者"になる道。</p>
           </div>
-          <div class="bg-white rounded-2xl p-5 border-2 border-brand-500 shadow-lg shadow-brand-500/10">
-            <div class="flex items-center gap-2 mb-2">
-              <span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-brand-500 text-white font-black text-xs">B</span>
-              <h3 class="font-display font-bold text-base text-ink-900">本社勤務ルート</h3>
+          <div class="bg-gradient-to-br from-brand-700 to-brand-900 rounded-xl p-4 text-white shadow-md">
+            <div class="flex items-center gap-2 mb-1">
+              <span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-white text-brand-700 font-black text-[10px]">B</span>
+              <h3 class="font-display font-bold text-sm">PM/PMO・コンサル</h3>
             </div>
-            <p class="text-xs text-ink-500 leading-relaxed">フェローシップ本社の中核メンバーとして、<strong class="text-ink-800">技術教育・採用・組織マネジメント・新規事業</strong>を担う。</p>
+            <p class="text-[11px] text-white/85 leading-relaxed">大規模DX案件のPM/PMO、ITコンサルとして上流・管理を極める。</p>
           </div>
-          <div class="bg-gradient-to-br from-ink-900 to-brand-900 rounded-2xl p-5 text-white shadow-lg border border-neon/30">
-            <div class="flex items-center gap-2 mb-2">
-              <span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-neon text-ink-900 font-black text-xs">C</span>
-              <h3 class="font-display font-bold text-base">フリーランスルート <span class="text-[10px] bg-neon text-ink-900 px-1.5 py-0.5 rounded-full ml-1">NEW</span></h3>
+          <div class="bg-white rounded-xl p-4 border-2 border-brand-500 shadow-md">
+            <div class="flex items-center gap-2 mb-1">
+              <span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-brand-500 text-white font-black text-[10px]">C</span>
+              <h3 class="font-display font-bold text-sm text-ink-900">本社勤務ルート</h3>
             </div>
-            <p class="text-xs text-white/85 leading-relaxed">正社員を卒業して独立しても、<strong class="text-neon">フェローシップから直接案件を受注</strong>可能。ブランクなくフリーランスとして活躍でき、案件も自由に選択できます。</p>
+            <p class="text-[11px] text-ink-500 leading-relaxed">本社の中核として、技術教育・採用・新規事業に関わる。</p>
+          </div>
+          <div class="bg-gradient-to-br from-ink-900 to-brand-900 rounded-xl p-4 text-white shadow-md border border-neon/30">
+            <div class="flex items-center gap-2 mb-1">
+              <span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-neon text-ink-900 font-black text-[10px]">D</span>
+              <h3 class="font-display font-bold text-sm">フリーランス <span class="text-[9px] bg-neon text-ink-900 px-1 py-0.5 rounded ml-1">NEW</span></h3>
+            </div>
+            <p class="text-[11px] text-white/85 leading-relaxed">独立後も<strong class="text-neon">フェローシップから案件を直接受注</strong>。自由に選べる。</p>
           </div>
         </div>
       </div>
@@ -539,188 +677,401 @@ details[open] .acc-icon{transform:rotate(45deg)}
   </div>
 </section>
 
-<!-- ========== PROJECTS ========== -->
-<section id="projects" class="py-20 lg:py-28 bg-white">
+<!-- ========== JOBS LIST (Filterable) ========== -->
+<section id="jobs" class="py-20 lg:py-28 bg-white">
   <div class="max-w-7xl mx-auto px-5 sm:px-8">
-    <div class="max-w-3xl mb-16">
-      <p class="eyebrow mb-4">PROJECT EXAMPLES</p>
-      <h2 class="font-display font-black text-4xl sm:text-5xl text-ink-900 leading-tight mb-5">エンド直の案件を、<br/><span class="text-brand-500">技術で選ぶ。</span></h2>
-      <p class="text-ink-500 text-lg leading-relaxed">PM・PMO、AI・サーバーサイド、インフラ、モビリティ、Webディレクション──。<br/>あなたの得意領域と、伸ばしたい技術で現場を選べます。</p>
+    <div class="max-w-3xl mb-10">
+      <p class="eyebrow mb-4">JOB LIST</p>
+      <h2 class="font-display font-black text-4xl sm:text-5xl text-ink-900 leading-tight mb-5">案件一覧<span class="text-brand-500">（一部抜粋）</span></h2>
+      <p class="text-ink-500 text-lg leading-relaxed">現在ご紹介可能な案件の一部をカテゴリ別にご覧いただけます。<br/>非公開案件を含む詳細情報は、面談時にご提示します。</p>
     </div>
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <!-- PM -->
-      <article class="cat-card card-hover rounded-2xl p-6 relative overflow-hidden">
-        <div class="flex items-center justify-between mb-4">
-          <span class="inline-flex items-center gap-2 bg-brand-500 text-white text-xs font-bold px-3 py-1.5 rounded-full">📊 PM</span>
-          <span class="font-mono text-[10px] text-ink-500">#01</span>
+
+    <!-- Filter chips -->
+    <div class="flex flex-wrap gap-2 mb-8" id="jobFilterChips">
+      <button class="job-chip active" data-filter="all">すべて <span class="text-[10px] opacity-70" id="jobCountAll"></span></button>
+      <button class="job-chip" data-filter="pm">PM / PMO</button>
+      <button class="job-chip" data-filter="ai">AI / LLM</button>
+      <button class="job-chip" data-filter="backend">サーバーサイド</button>
+      <button class="job-chip" data-filter="frontend">フロントエンド</button>
+      <button class="job-chip" data-filter="infra">インフラ / クラウド</button>
+      <button class="job-chip" data-filter="web">Webディレクター</button>
+      <button class="job-chip" data-filter="mobile">モバイル / ゲーム</button>
+      <button class="job-chip" data-filter="embedded">組込 / モビリティ</button>
+      <button class="job-chip" data-filter="corp">社内SE / セキュリティ</button>
+      <button class="job-chip" data-filter="data">データサイエンス</button>
+    </div>
+
+    <!-- Job cards -->
+    <div id="jobList" class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+
+      <article class="job-card cat-card card-hover rounded-2xl p-6" data-cat="pm">
+        <div class="flex items-center justify-between mb-3">
+          <span class="text-[10px] font-mono bg-brand-500 text-white px-2 py-1 rounded">PM</span>
+          <span class="text-[10px] font-mono text-ink-400">JOB-0101</span>
         </div>
-        <h3 class="font-display font-bold text-lg text-ink-900 mb-2 leading-snug">プロジェクトマネージャー<br/>（PM）・ITコンサル</h3>
-        <p class="text-sm text-ink-500 leading-relaxed mb-4">DX推進・大規模システム刷新の中核。計画立案、進捗・品質・コスト管理、リスクマネジメント、ステークホルダー調整。上流工程でコンサルへキャリアアップが明確。残業月10h以下。</p>
-        <div class="flex flex-wrap gap-1.5 mb-4">
-          <span class="text-[10px] font-mono bg-ink-100 text-ink-700 px-2 py-1 rounded">DX推進</span>
-          <span class="text-[10px] font-mono bg-ink-100 text-ink-700 px-2 py-1 rounded">基幹刷新</span>
-          <span class="text-[10px] font-mono bg-ink-100 text-ink-700 px-2 py-1 rounded">英語案件あり</span>
-          <span class="text-[10px] font-mono bg-ink-100 text-ink-700 px-2 py-1 rounded">PMP</span>
+        <h3 class="font-display font-bold text-base text-ink-900 mb-2 leading-snug">プロジェクトマネージャー（大規模DX基幹刷新）</h3>
+        <p class="text-xs text-ink-500 leading-relaxed mb-3">金融・メーカー等の基幹システム刷新PM。計画立案、進捗・品質・コスト管理、ステークホルダー調整。</p>
+        <div class="mb-3">
+          <span class="job-meta-chip">DX推進</span><span class="job-meta-chip">基幹刷新</span><span class="job-meta-chip">PMP</span>
         </div>
-        <div class="flex items-center justify-between text-xs text-ink-500 pt-3 border-t border-ink-100">
-          <span>¥ 年収 470–1,000万</span><span>⏱ 残業10h以下</span>
+        <div class="flex items-center justify-between text-xs pt-3 border-t border-ink-100">
+          <span class="job-salary">¥ 600–1,000万</span><span class="text-ink-500">📍 都内／在宅併用</span>
         </div>
       </article>
 
-      <!-- PMO -->
-      <article class="cat-card card-hover rounded-2xl p-6 relative overflow-hidden ring-2 ring-brand-500/30">
-        <div class="flex items-center justify-between mb-4">
-          <span class="inline-flex items-center gap-2 bg-gradient-to-r from-brand-500 to-brand-700 text-white text-xs font-bold px-3 py-1.5 rounded-full">🗂️ PMO</span>
-          <span class="font-mono text-[10px] text-brand-500 font-bold">人気案件多数</span>
+      <article class="job-card cat-card card-hover rounded-2xl p-6 ring-2 ring-brand-500/30" data-cat="pm">
+        <div class="flex items-center justify-between mb-3">
+          <span class="text-[10px] font-mono bg-gradient-to-r from-brand-500 to-brand-700 text-white px-2 py-1 rounded">PMO</span>
+          <span class="text-[10px] font-mono text-brand-500 font-bold">人気</span>
         </div>
-        <h3 class="font-display font-bold text-lg text-ink-900 mb-2 leading-snug">PMO／ITコンサル支援<br/>（AI・DX案件推進）</h3>
-        <p class="text-sm text-ink-500 leading-relaxed mb-4">深刻なPM不足のなか価値急上昇。PM補佐として、進行管理（WBS）、会議設計・議事録、課題管理、報告資料作成を担当。AI導入、基幹統合、BPR支援などトレンド性の高い案件が豊富。PM・コンサルへのパスも明確。</p>
-        <div class="flex flex-wrap gap-1.5 mb-4">
-          <span class="text-[10px] font-mono bg-ink-100 text-ink-700 px-2 py-1 rounded">WBS</span>
-          <span class="text-[10px] font-mono bg-ink-100 text-ink-700 px-2 py-1 rounded">AI導入</span>
-          <span class="text-[10px] font-mono bg-ink-100 text-ink-700 px-2 py-1 rounded">BPR</span>
-          <span class="text-[10px] font-mono bg-ink-100 text-ink-700 px-2 py-1 rounded">基幹統合</span>
+        <h3 class="font-display font-bold text-base text-ink-900 mb-2 leading-snug">PMO／ITコンサル支援（AI導入PJ）</h3>
+        <p class="text-xs text-ink-500 leading-relaxed mb-3">AI導入プロジェクトのPM補佐。WBS作成、会議設計・議事録、課題管理、報告資料作成。</p>
+        <div class="mb-3">
+          <span class="job-meta-chip">WBS</span><span class="job-meta-chip">AI導入</span><span class="job-meta-chip">BPR</span>
         </div>
-        <div class="flex items-center justify-between text-xs text-ink-500 pt-3 border-t border-ink-100">
-          <span>¥ 年収 450–1,000万</span><span>📈 上流工程</span>
+        <div class="flex items-center justify-between text-xs pt-3 border-t border-ink-100">
+          <span class="job-salary">¥ 500–900万</span><span class="text-ink-500">📍 都内／在宅併用</span>
         </div>
       </article>
 
-      <!-- AI -->
-      <article class="cat-card card-hover rounded-2xl p-6 relative overflow-hidden">
-        <div class="flex items-center justify-between mb-4">
-          <span class="inline-flex items-center gap-2 bg-gradient-to-r from-neon to-brand-400 text-ink-900 text-xs font-bold px-3 py-1.5 rounded-full">🤖 AI / LLM</span>
-          <span class="font-mono text-[10px] text-ink-500">#03</span>
+      <article class="job-card cat-card card-hover rounded-2xl p-6" data-cat="pm">
+        <div class="flex items-center justify-between mb-3">
+          <span class="text-[10px] font-mono bg-brand-500 text-white px-2 py-1 rounded">PMO</span>
+          <span class="text-[10px] font-mono text-ink-400">JOB-0103</span>
         </div>
-        <h3 class="font-display font-bold text-lg text-ink-900 mb-2 leading-snug">AIエージェント開発<br/>／AIコーディング特化</h3>
-        <p class="text-sm text-ink-500 leading-relaxed mb-4">Claude Code / GitHub Copilotをフル活用したAI駆動開発、RAG・LLMエージェント設計、Ruby on Rails × React × AWS。最先端のモダン開発に直接参画。</p>
-        <div class="flex flex-wrap gap-1.5 mb-4">
-          <span class="text-[10px] font-mono bg-ink-100 text-ink-700 px-2 py-1 rounded">LLM</span>
-          <span class="text-[10px] font-mono bg-ink-100 text-ink-700 px-2 py-1 rounded">RAG</span>
-          <span class="text-[10px] font-mono bg-ink-100 text-ink-700 px-2 py-1 rounded">Claude Code</span>
-          <span class="text-[10px] font-mono bg-ink-100 text-ink-700 px-2 py-1 rounded">React</span>
+        <h3 class="font-display font-bold text-base text-ink-900 mb-2 leading-snug">PMO（金融機関システム統合事務局）</h3>
+        <p class="text-xs text-ink-500 leading-relaxed mb-3">金融機関のシステム統合に伴う事務局運営。スケジュール調整、課題管理、ステークホルダー折衝。</p>
+        <div class="mb-3">
+          <span class="job-meta-chip">金融</span><span class="job-meta-chip">事務局</span><span class="job-meta-chip">PowerPoint</span>
         </div>
-        <div class="flex items-center justify-between text-xs text-ink-500 pt-3 border-t border-ink-100">
-          <span>¥ 年収 450–1,200万</span><span>⏱ 残業10h以下</span>
+        <div class="flex items-center justify-between text-xs pt-3 border-t border-ink-100">
+          <span class="job-salary">¥ 470–850万</span><span class="text-ink-500">📍 都内</span>
         </div>
       </article>
 
-      <!-- Backend -->
-      <article class="cat-card card-hover rounded-2xl p-6 relative overflow-hidden">
-        <div class="flex items-center justify-between mb-4">
-          <span class="inline-flex items-center gap-2 bg-brand-700 text-white text-xs font-bold px-3 py-1.5 rounded-full">🖥️ Backend</span>
-          <span class="font-mono text-[10px] text-ink-500">#04</span>
+      <article class="job-card cat-card card-hover rounded-2xl p-6" data-cat="ai">
+        <div class="flex items-center justify-between mb-3">
+          <span class="text-[10px] font-mono bg-gradient-to-r from-neon to-brand-400 text-ink-900 px-2 py-1 rounded">AI/LLM</span>
+          <span class="text-[10px] font-mono text-ink-400">JOB-0201</span>
         </div>
-        <h3 class="font-display font-bold text-lg text-ink-900 mb-2 leading-snug">開発エンジニア<br/>（Go / Python / Java / TS）</h3>
-        <p class="text-sm text-ink-500 leading-relaxed mb-4">詳細設計〜実装〜テスト〜運用改善を一人称で担当。自社サービス・DX案件が中心。Go × GCP、Python × AWS、TypeScript × Next.js など、モダン技術で市場価値の高いスキルセットへ。</p>
-        <div class="flex flex-wrap gap-1.5 mb-4">
-          <span class="text-[10px] font-mono bg-ink-100 text-ink-700 px-2 py-1 rounded">Go</span>
-          <span class="text-[10px] font-mono bg-ink-100 text-ink-700 px-2 py-1 rounded">Python</span>
-          <span class="text-[10px] font-mono bg-ink-100 text-ink-700 px-2 py-1 rounded">TypeScript</span>
-          <span class="text-[10px] font-mono bg-ink-100 text-ink-700 px-2 py-1 rounded">Java</span>
+        <h3 class="font-display font-bold text-base text-ink-900 mb-2 leading-snug">AIエージェント開発（LLM×RAG）</h3>
+        <p class="text-xs text-ink-500 leading-relaxed mb-3">自社SaaSにおけるRAG、Agentic RAG、VLMの研究開発。Ruby on Rails × React × AWS。</p>
+        <div class="mb-3">
+          <span class="job-meta-chip">LLM</span><span class="job-meta-chip">RAG</span><span class="job-meta-chip">LangChain</span>
         </div>
-        <div class="flex items-center justify-between text-xs text-ink-500 pt-3 border-t border-ink-100">
-          <span>¥ 年収 380–1,200万</span><span>⏱ 残業10h以下</span>
+        <div class="flex items-center justify-between text-xs pt-3 border-t border-ink-100">
+          <span class="job-salary">¥ 600–1,200万</span><span class="text-ink-500">📍 都内／在宅併用</span>
         </div>
       </article>
 
-      <!-- Infra -->
-      <article class="cat-card card-hover rounded-2xl p-6 relative overflow-hidden">
-        <div class="flex items-center justify-between mb-4">
-          <span class="inline-flex items-center gap-2 bg-brand-500 text-white text-xs font-bold px-3 py-1.5 rounded-full">☁️ Infra / Cloud</span>
-          <span class="font-mono text-[10px] text-ink-500">#05</span>
+      <article class="job-card cat-card card-hover rounded-2xl p-6" data-cat="ai">
+        <div class="flex items-center justify-between mb-3">
+          <span class="text-[10px] font-mono bg-gradient-to-r from-neon to-brand-400 text-ink-900 px-2 py-1 rounded">AI/LLM</span>
+          <span class="text-[10px] font-mono text-ink-400">JOB-0202</span>
         </div>
-        <h3 class="font-display font-bold text-lg text-ink-900 mb-2 leading-snug">インフラ・クラウド<br/>エンジニア（構築〜設計）</h3>
-        <p class="text-sm text-ink-500 leading-relaxed mb-4">運用監視のみから脱却、AWS/Azure/GCPへのクラウド移行、ガバメントクラウド、IaC（Terraform, AWS CDK）による自動化。構築・設計フェーズから関与。</p>
-        <div class="flex flex-wrap gap-1.5 mb-4">
-          <span class="text-[10px] font-mono bg-ink-100 text-ink-700 px-2 py-1 rounded">AWS</span>
-          <span class="text-[10px] font-mono bg-ink-100 text-ink-700 px-2 py-1 rounded">Azure</span>
-          <span class="text-[10px] font-mono bg-ink-100 text-ink-700 px-2 py-1 rounded">Terraform</span>
-          <span class="text-[10px] font-mono bg-ink-100 text-ink-700 px-2 py-1 rounded">K8s</span>
+        <h3 class="font-display font-bold text-base text-ink-900 mb-2 leading-snug">AIコーディング特化型エンジニア</h3>
+        <p class="text-xs text-ink-500 leading-relaxed mb-3">Claude Code / GitHub Copilotをフル活用。AIが生成したPRのレビュー、テスト設計。</p>
+        <div class="mb-3">
+          <span class="job-meta-chip">Claude Code</span><span class="job-meta-chip">Copilot</span><span class="job-meta-chip">React</span>
         </div>
-        <div class="flex items-center justify-between text-xs text-ink-500 pt-3 border-t border-ink-100">
-          <span>¥ 年収 450–1,000万</span><span>📝 IaC重視</span>
+        <div class="flex items-center justify-between text-xs pt-3 border-t border-ink-100">
+          <span class="job-salary">¥ 550–1,100万</span><span class="text-ink-500">📍 都内</span>
         </div>
       </article>
 
-      <!-- Web Director -->
-      <article class="cat-card card-hover rounded-2xl p-6 relative overflow-hidden">
-        <div class="flex items-center justify-between mb-4">
-          <span class="inline-flex items-center gap-2 bg-brand-500 text-white text-xs font-bold px-3 py-1.5 rounded-full">🎨 Web Director</span>
-          <span class="font-mono text-[10px] text-ink-500">#06</span>
+      <article class="job-card cat-card card-hover rounded-2xl p-6" data-cat="backend">
+        <div class="flex items-center justify-between mb-3">
+          <span class="text-[10px] font-mono bg-brand-700 text-white px-2 py-1 rounded">Backend</span>
+          <span class="text-[10px] font-mono text-ink-400">JOB-0301</span>
         </div>
-        <h3 class="font-display font-bold text-lg text-ink-900 mb-2 leading-snug">Webディレクター<br/>／Webプロデューサー</h3>
-        <p class="text-sm text-ink-500 leading-relaxed mb-4">大手企業のWeb制作・開発プロジェクトで、要件定義〜制作チームのディレクション〜納品までを一貫担当。300万円規模（単独完遂）→1000万円規模（チーム指揮）→2000万円規模（PM配下）と段階的ステップアップが明確。</p>
-        <div class="flex flex-wrap gap-1.5 mb-4">
-          <span class="text-[10px] font-mono bg-ink-100 text-ink-700 px-2 py-1 rounded">要件定義</span>
-          <span class="text-[10px] font-mono bg-ink-100 text-ink-700 px-2 py-1 rounded">GA4</span>
-          <span class="text-[10px] font-mono bg-ink-100 text-ink-700 px-2 py-1 rounded">CMS</span>
-          <span class="text-[10px] font-mono bg-ink-100 text-ink-700 px-2 py-1 rounded">大規模LP</span>
+        <h3 class="font-display font-bold text-base text-ink-900 mb-2 leading-snug">サーバーサイドエンジニア（Go × GCP）</h3>
+        <p class="text-xs text-ink-500 leading-relaxed mb-3">アプリのバックエンド運用開発。Go / TypeScript / Dart、GCP、Terraform。残業月10h以下。</p>
+        <div class="mb-3">
+          <span class="job-meta-chip">Go</span><span class="job-meta-chip">GCP</span><span class="job-meta-chip">Terraform</span>
         </div>
-        <div class="flex items-center justify-between text-xs text-ink-500 pt-3 border-t border-ink-100">
-          <span>¥ 年収 450–1,000万</span><span>🎯 裁量大</span>
+        <div class="flex items-center justify-between text-xs pt-3 border-t border-ink-100">
+          <span class="job-salary">¥ 500–900万</span><span class="text-ink-500">📍 都内／在宅併用</span>
         </div>
       </article>
 
-      <!-- Mobility -->
-      <article class="cat-card card-hover rounded-2xl p-6 relative overflow-hidden">
-        <div class="flex items-center justify-between mb-4">
-          <span class="inline-flex items-center gap-2 bg-brand-700 text-white text-xs font-bold px-3 py-1.5 rounded-full">🚗 Mobility</span>
-          <span class="font-mono text-[10px] text-ink-500">#07</span>
+      <article class="job-card cat-card card-hover rounded-2xl p-6" data-cat="backend">
+        <div class="flex items-center justify-between mb-3">
+          <span class="text-[10px] font-mono bg-brand-700 text-white px-2 py-1 rounded">Backend</span>
+          <span class="text-[10px] font-mono text-ink-400">JOB-0302</span>
         </div>
-        <h3 class="font-display font-bold text-lg text-ink-900 mb-2 leading-snug">次世代モビリティ開発<br/>（EV／ADAS／MBD）</h3>
-        <p class="text-sm text-ink-500 leading-relaxed mb-4">SUBARU、HondaなどのR&D拠点で、EV制御／ADAS自動運転／MBD（MATLAB/Simulink）／CAE解析を担当。100年に一度の変革期の最前線へ。</p>
-        <div class="flex flex-wrap gap-1.5 mb-4">
-          <span class="text-[10px] font-mono bg-ink-100 text-ink-700 px-2 py-1 rounded">C/C++</span>
-          <span class="text-[10px] font-mono bg-ink-100 text-ink-700 px-2 py-1 rounded">AUTOSAR</span>
-          <span class="text-[10px] font-mono bg-ink-100 text-ink-700 px-2 py-1 rounded">Simulink</span>
-          <span class="text-[10px] font-mono bg-ink-100 text-ink-700 px-2 py-1 rounded">CATIA</span>
+        <h3 class="font-display font-bold text-base text-ink-900 mb-2 leading-snug">Pythonエンジニア（FastAPI / Django）</h3>
+        <p class="text-xs text-ink-500 leading-relaxed mb-3">高度なバックエンド構築、外部API連携、非同期処理。AI/LLMプロダクトへの組み込みも。</p>
+        <div class="mb-3">
+          <span class="job-meta-chip">Python</span><span class="job-meta-chip">FastAPI</span><span class="job-meta-chip">AWS</span>
         </div>
-        <div class="flex items-center justify-between text-xs text-ink-500 pt-3 border-t border-ink-100">
-          <span>¥ 年収 450–1,000万</span><span>🏭 大手R&D</span>
+        <div class="flex items-center justify-between text-xs pt-3 border-t border-ink-100">
+          <span class="job-salary">¥ 500–800万</span><span class="text-ink-500">📍 都内／在宅併用</span>
         </div>
       </article>
 
-      <!-- Mobile / Game -->
-      <article class="cat-card card-hover rounded-2xl p-6 relative overflow-hidden">
-        <div class="flex items-center justify-between mb-4">
-          <span class="inline-flex items-center gap-2 bg-gradient-to-r from-neon to-brand-400 text-ink-900 text-xs font-bold px-3 py-1.5 rounded-full">📱 Mobile / Game</span>
-          <span class="font-mono text-[10px] text-ink-500">#08</span>
+      <article class="job-card cat-card card-hover rounded-2xl p-6" data-cat="backend">
+        <div class="flex items-center justify-between mb-3">
+          <span class="text-[10px] font-mono bg-brand-700 text-white px-2 py-1 rounded">Backend</span>
+          <span class="text-[10px] font-mono text-ink-400">JOB-0303</span>
         </div>
-        <h3 class="font-display font-bold text-lg text-ink-900 mb-2 leading-snug">モバイル / ゲーム / XR<br/>（iOS・Android・Unity・UE5）</h3>
-        <p class="text-sm text-ink-500 leading-relaxed mb-4">IoT家電連携、Fintech端末、動画配信、AR/VR、有名IPタイトルのゲーム開発。Kotlin / Swift / Flutter / Unity。CMで見るタイトルに関われる。</p>
-        <div class="flex flex-wrap gap-1.5 mb-4">
-          <span class="text-[10px] font-mono bg-ink-100 text-ink-700 px-2 py-1 rounded">Kotlin</span>
-          <span class="text-[10px] font-mono bg-ink-100 text-ink-700 px-2 py-1 rounded">Swift</span>
-          <span class="text-[10px] font-mono bg-ink-100 text-ink-700 px-2 py-1 rounded">Unity</span>
-          <span class="text-[10px] font-mono bg-ink-100 text-ink-700 px-2 py-1 rounded">UE5</span>
+        <h3 class="font-display font-bold text-base text-ink-900 mb-2 leading-snug">Javaエンジニア（Spring Boot 大規模基盤）</h3>
+        <p class="text-xs text-ink-500 leading-relaxed mb-3">大規模基盤の設計・改修、RDBのインデックス最適化、レガシーから最新Javaへのリプレイス。</p>
+        <div class="mb-3">
+          <span class="job-meta-chip">Java</span><span class="job-meta-chip">Spring Boot</span><span class="job-meta-chip">AWS</span>
         </div>
-        <div class="flex items-center justify-between text-xs text-ink-500 pt-3 border-t border-ink-100">
-          <span>¥ 年収 450–1,000万</span><span>⏱ 残業10h以下</span>
+        <div class="flex items-center justify-between text-xs pt-3 border-t border-ink-100">
+          <span class="job-salary">¥ 450–900万</span><span class="text-ink-500">📍 都内</span>
         </div>
       </article>
 
-      <!-- Embedded -->
-      <article class="cat-card card-hover rounded-2xl p-6 relative overflow-hidden">
-        <div class="flex items-center justify-between mb-4">
-          <span class="inline-flex items-center gap-2 bg-brand-700 text-white text-xs font-bold px-3 py-1.5 rounded-full">🔧 Embedded</span>
-          <span class="font-mono text-[10px] text-ink-500">#09</span>
+      <article class="job-card cat-card card-hover rounded-2xl p-6" data-cat="frontend">
+        <div class="flex items-center justify-between mb-3">
+          <span class="text-[10px] font-mono bg-brand-500 text-white px-2 py-1 rounded">Frontend</span>
+          <span class="text-[10px] font-mono text-ink-400">JOB-0401</span>
         </div>
-        <h3 class="font-display font-bold text-lg text-ink-900 mb-2 leading-snug">組込 / LSI・FPGA<br/>エンジニア</h3>
-        <p class="text-sm text-ink-500 leading-relaxed mb-4">車載機器、家電、産業用ロボット、IoTデバイスの組込開発。マイコン制御からRTOS、組込Linux、LSI/FPGA（RTL設計・検証）まで、スキルに合わせてレイヤーを選択可能。</p>
-        <div class="flex flex-wrap gap-1.5 mb-4">
-          <span class="text-[10px] font-mono bg-ink-100 text-ink-700 px-2 py-1 rounded">C/C++</span>
-          <span class="text-[10px] font-mono bg-ink-100 text-ink-700 px-2 py-1 rounded">RTOS</span>
-          <span class="text-[10px] font-mono bg-ink-100 text-ink-700 px-2 py-1 rounded">Verilog</span>
-          <span class="text-[10px] font-mono bg-ink-100 text-ink-700 px-2 py-1 rounded">UVM</span>
+        <h3 class="font-display font-bold text-base text-ink-900 mb-2 leading-snug">フロントエンドエンジニア（React/Next.js）</h3>
+        <p class="text-xs text-ink-500 leading-relaxed mb-3">大規模SPAの設計・開発、TypeScript高度型推論、デザインシステム構築。</p>
+        <div class="mb-3">
+          <span class="job-meta-chip">React</span><span class="job-meta-chip">Next.js</span><span class="job-meta-chip">TypeScript</span>
         </div>
-        <div class="flex items-center justify-between text-xs text-ink-500 pt-3 border-t border-ink-100">
-          <span>¥ 年収 450–1,000万</span><span>🛠 プレイヤー志向</span>
+        <div class="flex items-center justify-between text-xs pt-3 border-t border-ink-100">
+          <span class="job-salary">¥ 450–900万</span><span class="text-ink-500">📍 都内／在宅併用</span>
+        </div>
+      </article>
+
+      <article class="job-card cat-card card-hover rounded-2xl p-6" data-cat="infra">
+        <div class="flex items-center justify-between mb-3">
+          <span class="text-[10px] font-mono bg-brand-500 text-white px-2 py-1 rounded">Infra</span>
+          <span class="text-[10px] font-mono text-ink-400">JOB-0501</span>
+        </div>
+        <h3 class="font-display font-bold text-base text-ink-900 mb-2 leading-snug">インフラ・クラウドエンジニア（AWS構築）</h3>
+        <p class="text-xs text-ink-500 leading-relaxed mb-3">AWSを用いた基盤設計・構築。ガバメントクラウド、IaC（Terraform, CDK）での自動化。</p>
+        <div class="mb-3">
+          <span class="job-meta-chip">AWS</span><span class="job-meta-chip">Terraform</span><span class="job-meta-chip">K8s</span>
+        </div>
+        <div class="flex items-center justify-between text-xs pt-3 border-t border-ink-100">
+          <span class="job-salary">¥ 500–900万</span><span class="text-ink-500">📍 都内</span>
+        </div>
+      </article>
+
+      <article class="job-card cat-card card-hover rounded-2xl p-6" data-cat="infra">
+        <div class="flex items-center justify-between mb-3">
+          <span class="text-[10px] font-mono bg-brand-500 text-white px-2 py-1 rounded">Infra</span>
+          <span class="text-[10px] font-mono text-ink-400">JOB-0502</span>
+        </div>
+        <h3 class="font-display font-bold text-base text-ink-900 mb-2 leading-snug">Azure構築エンジニア（Microsoft 365連携）</h3>
+        <p class="text-xs text-ink-500 leading-relaxed mb-3">Azure AD、Intune、Microsoft 365を使ったゼロトラストセキュリティ基盤構築。</p>
+        <div class="mb-3">
+          <span class="job-meta-chip">Azure</span><span class="job-meta-chip">M365</span><span class="job-meta-chip">ゼロトラスト</span>
+        </div>
+        <div class="flex items-center justify-between text-xs pt-3 border-t border-ink-100">
+          <span class="job-salary">¥ 450–850万</span><span class="text-ink-500">📍 都内／在宅併用</span>
+        </div>
+      </article>
+
+      <article class="job-card cat-card card-hover rounded-2xl p-6" data-cat="web">
+        <div class="flex items-center justify-between mb-3">
+          <span class="text-[10px] font-mono bg-brand-500 text-white px-2 py-1 rounded">Web Dir</span>
+          <span class="text-[10px] font-mono text-ink-400">JOB-0601</span>
+        </div>
+        <h3 class="font-display font-bold text-base text-ink-900 mb-2 leading-snug">Webディレクター（大手サイトリニューアル）</h3>
+        <p class="text-xs text-ink-500 leading-relaxed mb-3">大手メーカー・Webサービス企業のサイトリニューアル。要件定義〜納品まで一貫担当。</p>
+        <div class="mb-3">
+          <span class="job-meta-chip">要件定義</span><span class="job-meta-chip">GA4</span><span class="job-meta-chip">CMS</span>
+        </div>
+        <div class="flex items-center justify-between text-xs pt-3 border-t border-ink-100">
+          <span class="job-salary">¥ 500–900万</span><span class="text-ink-500">📍 都内</span>
+        </div>
+      </article>
+
+      <article class="job-card cat-card card-hover rounded-2xl p-6" data-cat="web">
+        <div class="flex items-center justify-between mb-3">
+          <span class="text-[10px] font-mono bg-brand-500 text-white px-2 py-1 rounded">Web Dir</span>
+          <span class="text-[10px] font-mono text-ink-400">JOB-0602</span>
+        </div>
+        <h3 class="font-display font-bold text-base text-ink-900 mb-2 leading-snug">Webプロデューサー（エンタメ系大型LP）</h3>
+        <p class="text-xs text-ink-500 leading-relaxed mb-3">エンタメ業界向け大型LP／キャンペーンサイト制作のPM。10名以上のチーム統括。</p>
+        <div class="mb-3">
+          <span class="job-meta-chip">LP制作</span><span class="job-meta-chip">チーム管理</span><span class="job-meta-chip">エンタメ</span>
+        </div>
+        <div class="flex items-center justify-between text-xs pt-3 border-t border-ink-100">
+          <span class="job-salary">¥ 600–1,000万</span><span class="text-ink-500">📍 都内</span>
+        </div>
+      </article>
+
+      <article class="job-card cat-card card-hover rounded-2xl p-6" data-cat="mobile">
+        <div class="flex items-center justify-between mb-3">
+          <span class="text-[10px] font-mono bg-gradient-to-r from-neon to-brand-400 text-ink-900 px-2 py-1 rounded">Mobile</span>
+          <span class="text-[10px] font-mono text-ink-400">JOB-0701</span>
+        </div>
+        <h3 class="font-display font-bold text-base text-ink-900 mb-2 leading-snug">iOSアプリ開発（Fintech決済端末）</h3>
+        <p class="text-xs text-ink-500 leading-relaxed mb-3">キャッシュレス決済端末向けアプリ開発。詳細設計〜製造〜テスト実装。</p>
+        <div class="mb-3">
+          <span class="job-meta-chip">Swift</span><span class="job-meta-chip">Fintech</span><span class="job-meta-chip">BLE</span>
+        </div>
+        <div class="flex items-center justify-between text-xs pt-3 border-t border-ink-100">
+          <span class="job-salary">¥ 500–900万</span><span class="text-ink-500">📍 都内</span>
+        </div>
+      </article>
+
+      <article class="job-card cat-card card-hover rounded-2xl p-6" data-cat="mobile">
+        <div class="flex items-center justify-between mb-3">
+          <span class="text-[10px] font-mono bg-gradient-to-r from-neon to-brand-400 text-ink-900 px-2 py-1 rounded">Game</span>
+          <span class="text-[10px] font-mono text-ink-400">JOB-0702</span>
+        </div>
+        <h3 class="font-display font-bold text-base text-ink-900 mb-2 leading-snug">Unity開発（有名IPタイトル）</h3>
+        <p class="text-xs text-ink-500 leading-relaxed mb-3">CMで見るような有名IPタイトルの新規開発。C# (Unity)でのクライアント実装。</p>
+        <div class="mb-3">
+          <span class="job-meta-chip">Unity</span><span class="job-meta-chip">C#</span><span class="job-meta-chip">ゲーム</span>
+        </div>
+        <div class="flex items-center justify-between text-xs pt-3 border-t border-ink-100">
+          <span class="job-salary">¥ 450–850万</span><span class="text-ink-500">📍 都内</span>
+        </div>
+      </article>
+
+      <article class="job-card cat-card card-hover rounded-2xl p-6" data-cat="mobile">
+        <div class="flex items-center justify-between mb-3">
+          <span class="text-[10px] font-mono bg-gradient-to-r from-neon to-brand-400 text-ink-900 px-2 py-1 rounded">Mobile</span>
+          <span class="text-[10px] font-mono text-ink-400">JOB-0703</span>
+        </div>
+        <h3 class="font-display font-bold text-base text-ink-900 mb-2 leading-snug">Flutter開発（動画配信サービス）</h3>
+        <p class="text-xs text-ink-500 leading-relaxed mb-3">Flutter/Dartでのクロスプラットフォーム開発。Go言語バックエンドとの連携。</p>
+        <div class="mb-3">
+          <span class="job-meta-chip">Flutter</span><span class="job-meta-chip">Dart</span><span class="job-meta-chip">GCP</span>
+        </div>
+        <div class="flex items-center justify-between text-xs pt-3 border-t border-ink-100">
+          <span class="job-salary">¥ 500–900万</span><span class="text-ink-500">📍 都内／在宅併用</span>
+        </div>
+      </article>
+
+      <article class="job-card cat-card card-hover rounded-2xl p-6" data-cat="embedded">
+        <div class="flex items-center justify-between mb-3">
+          <span class="text-[10px] font-mono bg-brand-700 text-white px-2 py-1 rounded">Mobility</span>
+          <span class="text-[10px] font-mono text-ink-400">JOB-0801</span>
+        </div>
+        <h3 class="font-display font-bold text-base text-ink-900 mb-2 leading-snug">EV制御ソフトウェア開発（大手自動車R&D）</h3>
+        <p class="text-xs text-ink-500 leading-relaxed mb-3">大手自動車メーカーR&DでEV/HEV向けパワートレイン制御。バッテリー、インバータ等。</p>
+        <div class="mb-3">
+          <span class="job-meta-chip">C/C++</span><span class="job-meta-chip">AUTOSAR</span><span class="job-meta-chip">EV</span>
+        </div>
+        <div class="flex items-center justify-between text-xs pt-3 border-t border-ink-100">
+          <span class="job-salary">¥ 500–900万</span><span class="text-ink-500">📍 都内／横浜／栃木</span>
+        </div>
+      </article>
+
+      <article class="job-card cat-card card-hover rounded-2xl p-6" data-cat="embedded">
+        <div class="flex items-center justify-between mb-3">
+          <span class="text-[10px] font-mono bg-brand-700 text-white px-2 py-1 rounded">Mobility</span>
+          <span class="text-[10px] font-mono text-ink-400">JOB-0802</span>
+        </div>
+        <h3 class="font-display font-bold text-base text-ink-900 mb-2 leading-snug">MBDエンジニア（ADAS自動運転）</h3>
+        <p class="text-xs text-ink-500 leading-relaxed mb-3">MATLAB/Simulinkを用いた制御モデル設計。HILS/SILS環境構築。空飛ぶクルマ・月面探査機も。</p>
+        <div class="mb-3">
+          <span class="job-meta-chip">MATLAB</span><span class="job-meta-chip">Simulink</span><span class="job-meta-chip">ADAS</span>
+        </div>
+        <div class="flex items-center justify-between text-xs pt-3 border-t border-ink-100">
+          <span class="job-salary">¥ 500–950万</span><span class="text-ink-500">📍 都内／神奈川</span>
+        </div>
+      </article>
+
+      <article class="job-card cat-card card-hover rounded-2xl p-6" data-cat="embedded">
+        <div class="flex items-center justify-between mb-3">
+          <span class="text-[10px] font-mono bg-brand-700 text-white px-2 py-1 rounded">Embedded</span>
+          <span class="text-[10px] font-mono text-ink-400">JOB-0803</span>
+        </div>
+        <h3 class="font-display font-bold text-base text-ink-900 mb-2 leading-snug">組込Linuxエンジニア（IoT機器）</h3>
+        <p class="text-xs text-ink-500 leading-relaxed mb-3">組込Linux環境でのデバイスドライバ開発、Yoctoカスタマイズ、ネットワークスタック実装。</p>
+        <div class="mb-3">
+          <span class="job-meta-chip">Linux</span><span class="job-meta-chip">Yocto</span><span class="job-meta-chip">C/C++</span>
+        </div>
+        <div class="flex items-center justify-between text-xs pt-3 border-t border-ink-100">
+          <span class="job-salary">¥ 450–850万</span><span class="text-ink-500">📍 都内</span>
+        </div>
+      </article>
+
+      <article class="job-card cat-card card-hover rounded-2xl p-6" data-cat="embedded">
+        <div class="flex items-center justify-between mb-3">
+          <span class="text-[10px] font-mono bg-brand-700 text-white px-2 py-1 rounded">LSI/FPGA</span>
+          <span class="text-[10px] font-mono text-ink-400">JOB-0804</span>
+        </div>
+        <h3 class="font-display font-bold text-base text-ink-900 mb-2 leading-snug">LSI・FPGA設計（5G/AIアクセラレータ）</h3>
+        <p class="text-xs text-ink-500 leading-relaxed mb-3">5G/6G、自動運転、AIアクセラレータ領域のLSI/FPGA設計・検証。残業月5h以下。</p>
+        <div class="mb-3">
+          <span class="job-meta-chip">Verilog</span><span class="job-meta-chip">UVM</span><span class="job-meta-chip">SystemVerilog</span>
+        </div>
+        <div class="flex items-center justify-between text-xs pt-3 border-t border-ink-100">
+          <span class="job-salary">¥ 500–1,000万</span><span class="text-ink-500">📍 都内／神奈川</span>
+        </div>
+      </article>
+
+      <article class="job-card cat-card card-hover rounded-2xl p-6" data-cat="corp">
+        <div class="flex items-center justify-between mb-3">
+          <span class="text-[10px] font-mono bg-brand-500 text-white px-2 py-1 rounded">社内SE</span>
+          <span class="text-[10px] font-mono text-ink-400">JOB-0901</span>
+        </div>
+        <h3 class="font-display font-bold text-base text-ink-900 mb-2 leading-snug">社内SE（SaaS選定・ゼロトラスト導入）</h3>
+        <p class="text-xs text-ink-500 leading-relaxed mb-3">顧客企業の情シス支援。SaaS選定・導入、ゼロトラスト設計、セキュリティ統制。</p>
+        <div class="mb-3">
+          <span class="job-meta-chip">M365</span><span class="job-meta-chip">Okta</span><span class="job-meta-chip">EDR</span>
+        </div>
+        <div class="flex items-center justify-between text-xs pt-3 border-t border-ink-100">
+          <span class="job-salary">¥ 500–900万</span><span class="text-ink-500">📍 都内</span>
+        </div>
+      </article>
+
+      <article class="job-card cat-card card-hover rounded-2xl p-6" data-cat="corp">
+        <div class="flex items-center justify-between mb-3">
+          <span class="text-[10px] font-mono bg-brand-500 text-white px-2 py-1 rounded">Security</span>
+          <span class="text-[10px] font-mono text-ink-400">JOB-0902</span>
+        </div>
+        <h3 class="font-display font-bold text-base text-ink-900 mb-2 leading-snug">セキュリティエンジニア（CSIRT構築支援）</h3>
+        <p class="text-xs text-ink-500 leading-relaxed mb-3">事業会社向けセキュリティポリシー策定、CSIRT/SOC導入支援、脆弱性診断。</p>
+        <div class="mb-3">
+          <span class="job-meta-chip">CSIRT</span><span class="job-meta-chip">WAF</span><span class="job-meta-chip">ISMS</span>
+        </div>
+        <div class="flex items-center justify-between text-xs pt-3 border-t border-ink-100">
+          <span class="job-salary">¥ 500–1,000万</span><span class="text-ink-500">📍 都内</span>
+        </div>
+      </article>
+
+      <article class="job-card cat-card card-hover rounded-2xl p-6" data-cat="data">
+        <div class="flex items-center justify-between mb-3">
+          <span class="text-[10px] font-mono bg-gradient-to-r from-neon to-brand-400 text-ink-900 px-2 py-1 rounded">Data</span>
+          <span class="text-[10px] font-mono text-ink-400">JOB-1001</span>
+        </div>
+        <h3 class="font-display font-bold text-base text-ink-900 mb-2 leading-snug">データサイエンティスト（EC需要予測）</h3>
+        <p class="text-xs text-ink-500 leading-relaxed mb-3">大手小売・EC事業者向け購買データ分析、需要予測モデル構築。Python × SQL × BigQuery。</p>
+        <div class="mb-3">
+          <span class="job-meta-chip">Python</span><span class="job-meta-chip">BigQuery</span><span class="job-meta-chip">Tableau</span>
+        </div>
+        <div class="flex items-center justify-between text-xs pt-3 border-t border-ink-100">
+          <span class="job-salary">¥ 550–1,100万</span><span class="text-ink-500">📍 都内</span>
+        </div>
+      </article>
+
+      <article class="job-card cat-card card-hover rounded-2xl p-6" data-cat="data">
+        <div class="flex items-center justify-between mb-3">
+          <span class="text-[10px] font-mono bg-gradient-to-r from-neon to-brand-400 text-ink-900 px-2 py-1 rounded">Data</span>
+          <span class="text-[10px] font-mono text-ink-400">JOB-1002</span>
+        </div>
+        <h3 class="font-display font-bold text-base text-ink-900 mb-2 leading-snug">データサイエンティスト（SaaSチャーン予測）</h3>
+        <p class="text-xs text-ink-500 leading-relaxed mb-3">SaaS企業のユーザー行動ログ解析、チャーン予測AI開発。経営層へのレポーティング。</p>
+        <div class="mb-3">
+          <span class="job-meta-chip">Python</span><span class="job-meta-chip">R</span><span class="job-meta-chip">Snowflake</span>
+        </div>
+        <div class="flex items-center justify-between text-xs pt-3 border-t border-ink-100">
+          <span class="job-salary">¥ 600–1,200万</span><span class="text-ink-500">📍 都内／在宅併用</span>
         </div>
       </article>
 
     </div>
-    <p class="text-center text-xs text-ink-500 mt-6">※案件は一部抜粋です。他に社内SE、セキュリティ、データサイエンティスト、3Dデザイナー／TAなど多数。</p>
+
+    <div class="text-center mt-10">
+      <p class="text-sm text-ink-500 mb-4">※ 企業名を伏せた案件例です。詳細な企業名・業務内容・条件は面談時にご提示します。</p>
+      <a href="#apply" class="inline-flex items-center gap-2 bg-brand-500 hover:bg-brand-600 text-white font-bold px-8 py-4 rounded-full text-sm transition shadow-md">
+        <span>→ 面談で非公開案件を確認する</span>
+      </a>
+    </div>
   </div>
 </section>
 
@@ -745,16 +1096,16 @@ details[open] .acc-icon{transform:rotate(45deg)}
         <div class="grid md:grid-cols-[200px_1fr] gap-2 md:gap-6 px-6 md:px-8 py-5">
           <dt class="font-bold text-ink-900 flex items-center gap-2">¥ 想定年収</dt>
           <dd class="text-ink-700 text-sm leading-relaxed">
-            <span class="font-display font-black text-2xl text-brand-500">450万円 〜 1,000万円以上</span><span class="text-ink-500 ml-2">（経験・能力を考慮）</span>
-            <div class="text-xs text-ink-500 mt-2">月給 375,300円〜833,400円／固定残業手当（月30時間分）を含む、超過分は別途全額支給。昇給年2回（6月・12月）。</div>
+            <span class="font-display font-black text-2xl text-brand-500">450万円 〜 1,200万円以上</span><span class="text-ink-500 ml-2">（経験・能力・職種を考慮）</span>
+            <div class="text-xs text-ink-500 mt-2">月給 375,300円〜1,001,100円／固定残業手当（月30時間分）を含む、超過分は別途全額支給。昇給年2回（6月・12月）。</div>
           </dd>
         </div>
         <div class="grid md:grid-cols-[200px_1fr] gap-2 md:gap-6 px-6 md:px-8 py-5">
           <dt class="font-bold text-ink-900 flex items-center gap-2">✅ 応募要件</dt>
           <dd class="text-ink-700 text-sm leading-relaxed">
-            ・職種経験<strong class="text-ink-900">3年以上</strong>（自走して業務を遂行できることを前提）<br/>
+            ・職種経験<strong class="text-ink-900">3年以上</strong>（顧客先で自走して業務を遂行できることを前提）<br/>
             ・学歴不問／年齢の目安：45歳程度まで
-            <div class="mt-2 p-3 bg-brand-50 border-l-3 border-brand-500 rounded-r text-xs text-ink-700">
+            <div class="mt-2 p-3 bg-brand-50 border-l-[3px] border-brand-500 rounded-r text-xs text-ink-700">
               <strong class="text-brand-700">※経験3年未満の方へ：</strong>ご応募は可能ですが、想定年収・配属可能な案件範囲など<strong>条件に変動が出る場合</strong>がございます。まずはお気軽にご相談ください。
             </div>
           </dd>
@@ -764,8 +1115,8 @@ details[open] .acc-icon{transform:rotate(45deg)}
           <dd class="text-ink-700 text-sm leading-relaxed">東京都内（23区中心）／神奈川県（横浜・川崎）／ 転居を伴う異動なし／ 顧客先でのオンサイト勤務、または在宅（リモート）勤務となります（顧客先ルールに準ずる）。</dd>
         </div>
         <div class="grid md:grid-cols-[200px_1fr] gap-2 md:gap-6 px-6 md:px-8 py-5">
-          <dt class="font-bold text-ink-900 flex items-center gap-2">🕐 勤務時間</dt>
-          <dd class="text-ink-700 text-sm leading-relaxed">プロジェクト先に準ずる／ 実働8時間・休憩1時間が基本／ 残業月平均5〜10時間以下を推奨</dd>
+          <dt class="font-bold text-ink-900 flex items-center gap-2">🕐 勤務時間・残業</dt>
+          <dd class="text-ink-700 text-sm leading-relaxed">プロジェクト先に準ずる／ 実働8時間・休憩1時間が基本<br/><span class="text-xs text-ink-500">※残業時間は職種・プロジェクトにより異なります。開発エンジニア系は月平均5〜10時間以下を推奨案件が中心、PM/PMO層は案件によっては月20〜40時間程度になる場合もあります。</span></dd>
         </div>
         <div class="grid md:grid-cols-[200px_1fr] gap-2 md:gap-6 px-6 md:px-8 py-5">
           <dt class="font-bold text-ink-900 flex items-center gap-2">🏖️ 休日休暇</dt>
@@ -773,7 +1124,7 @@ details[open] .acc-icon{transform:rotate(45deg)}
         </div>
         <div class="grid md:grid-cols-[200px_1fr] gap-2 md:gap-6 px-6 md:px-8 py-5">
           <dt class="font-bold text-ink-900 flex items-center gap-2">🎁 福利厚生</dt>
-          <dd class="text-ink-700 text-sm leading-relaxed">社会保険完備（雇用・労災・健康・厚生年金）／ 交通費支給（月3万円まで）／ 時間外手当（超過分全額支給）／ <strong class="text-ink-900">資格取得支援制度（300種類以上）</strong>／ 有料eラーニング無料利用（Schoo、paiza）／ 企業型確定拠出年金（401K）／ 社員持株制度（奨励金10%）／ <strong class="text-ink-900">副業OK（承認制）</strong>／ 服装・髪型自由／ リファラル採用インセンティブ最大30万円</dd>
+          <dd class="text-ink-700 text-sm leading-relaxed">社会保険完備（雇用・労災・健康・厚生年金）／ 交通費支給（月3万円まで）／ 時間外手当（超過分全額支給）／ <strong class="text-ink-900">資格取得支援制度（300種類以上）</strong>／ 有料eラーニング無料利用（Schoo、paiza）／ 企業型確定拠出年金（401K）／ 社員持株制度（奨励金10%）／ <strong class="text-ink-900">副業OK（承認制）</strong>／ 服装・髪型自由／ リファラル採用インセンティブ最大30万円／ Google Chatによる社員間ネットワーク／ 月次オンライン定例会（帰社日なし）</dd>
         </div>
         <div class="grid md:grid-cols-[200px_1fr] gap-2 md:gap-6 px-6 md:px-8 py-5">
           <dt class="font-bold text-ink-900 flex items-center gap-2">📋 選考フロー</dt>
@@ -783,7 +1134,7 @@ details[open] .acc-icon{transform:rotate(45deg)}
               <span class="text-ink-300 font-bold">›</span>
               <span class="inline-flex items-center gap-1.5 bg-brand-50 text-brand-700 font-bold px-3 py-1.5 rounded-full border border-brand-200">2. 1次面接（Web）</span>
               <span class="text-ink-300 font-bold">›</span>
-              <span class="inline-flex items-center gap-1.5 bg-brand-50 text-brand-700 font-bold px-3 py-1.5 rounded-full border border-brand-200">3. 最終面接＋適性検査（Web）</span>
+              <span class="inline-flex items-center gap-1.5 bg-brand-50 text-brand-700 font-bold px-3 py-1.5 rounded-full border border-brand-200">3. 最終面接（Web）</span>
               <span class="text-ink-300 font-bold">›</span>
               <span class="inline-flex items-center gap-1.5 bg-brand-500 text-white font-bold px-3 py-1.5 rounded-full">4. 内定</span>
             </div>
@@ -833,17 +1184,24 @@ details[open] .acc-icon{transform:rotate(45deg)}
       </details>
       <details class="group bg-ink-50 rounded-xl border border-ink-100 overflow-hidden">
         <summary class="flex items-center justify-between px-6 py-5 cursor-pointer select-none list-none hover:bg-ink-100 transition">
+          <span class="font-bold text-ink-900 pr-4">将来、顧客先への直接雇用（転籍）は可能？</span>
+          <span class="acc-icon text-brand-500 text-xl font-light leading-none">+</span>
+        </summary>
+        <div class="px-6 pb-6 text-sm text-ink-600 leading-relaxed border-t border-ink-100 pt-4">可能です。現場で認められた実績をベースに、ご希望があれば<strong class="text-ink-900">エンドクライアントへの転籍（直接雇用）への移行をフェローシップが後押し</strong>します。送り出した先でも活躍いただくことを、私たちは誇りに思っています。</div>
+      </details>
+      <details class="group bg-ink-50 rounded-xl border border-ink-100 overflow-hidden">
+        <summary class="flex items-center justify-between px-6 py-5 cursor-pointer select-none list-none hover:bg-ink-100 transition">
           <span class="font-bold text-ink-900 pr-4">将来的にフリーランスとして独立することは可能？</span>
           <span class="acc-icon text-brand-500 text-xl font-light leading-none">+</span>
         </summary>
-        <div class="px-6 pb-6 text-sm text-ink-600 leading-relaxed border-t border-ink-100 pt-4">可能です。フェローシップでは正社員を卒業されたあと、<strong class="text-ink-900">フリーランスとして当社から直接案件を受注いただくルート</strong>も用意しています。独立直後のブランク期間や営業活動のリスクを避け、いままでの信頼関係をベースに案件を自由に選んで働けるスタイルです。会社員として安定を得ながらキャリアを育て、タイミングが来たらフリーランスへ。その両方を一つの会社で実現できます。</div>
+        <div class="px-6 pb-6 text-sm text-ink-600 leading-relaxed border-t border-ink-100 pt-4">可能です。フェローシップでは正社員を卒業されたあと、<strong class="text-ink-900">フリーランスとして当社から直接案件を受注いただくルート</strong>も用意しています。独立直後のブランク期間や営業活動のリスクを避け、いままでの信頼関係をベースに案件を自由に選んで働けるスタイルです。</div>
       </details>
       <details class="group bg-ink-50 rounded-xl border border-ink-100 overflow-hidden">
         <summary class="flex items-center justify-between px-6 py-5 cursor-pointer select-none list-none hover:bg-ink-100 transition">
           <span class="font-bold text-ink-900 pr-4">現場には1人で行くの？チームで行くの？</span>
           <span class="acc-icon text-brand-500 text-xl font-light leading-none">+</span>
         </summary>
-        <div class="px-6 pb-6 text-sm text-ink-600 leading-relaxed border-t border-ink-100 pt-4"><strong class="text-ink-900">基本は1人常駐を想定いただければと思います。</strong>ただ、既にフェローシップの先輩メンバーが常駐している現場に合流するケースや、案件を新規開拓中のため"一人目"として入るケースもあります。<br/><br/>重要なのは、<strong class="text-ink-900">"1人常駐で終わらない"</strong>ということです。現場で信頼を勝ち取ったあとは、営業担当が増員・リプレイスを提案し、あなた自身がリーダーとなって若手メンバーを迎え入れる<strong class="text-ink-900">「チーム体制」</strong>を築いていけます。</div>
+        <div class="px-6 pb-6 text-sm text-ink-600 leading-relaxed border-t border-ink-100 pt-4"><strong class="text-ink-900">基本は1人常駐を想定いただければと思います。</strong>ただ、既にフェローシップの先輩メンバーが常駐している現場に合流するケースや、案件を新規開拓中のため"一人目"として入るケースもあります。<br/><br/>重要なのは、<strong class="text-ink-900">"1人常駐で終わらない"</strong>ということです。現場で信頼を勝ち取ったあとは、営業担当が増員・リプレイスを提案し、あなた自身がリーダーとなって若手メンバーを迎え入れる<strong class="text-ink-900">「チーム体制」</strong>を築いていけます。また、Google Chatやオンライン月次会を通じて、他現場のメンバーとも常時つながれます。</div>
       </details>
       <details class="group bg-ink-50 rounded-xl border border-ink-100 overflow-hidden">
         <summary class="flex items-center justify-between px-6 py-5 cursor-pointer select-none list-none hover:bg-ink-100 transition">
@@ -882,18 +1240,15 @@ details[open] .acc-icon{transform:rotate(45deg)}
       <a href="mailto:ge-saiyo@f-ship.jp?subject=%E3%80%90%E3%82%AB%E3%82%B8%E3%83%A5%E3%82%A2%E3%83%AB%E9%9D%A2%E8%AB%87%E5%B8%8C%E6%9C%9B%E3%80%91%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E6%8E%A1%E7%94%A8LP%E3%82%88%E3%82%8A&body=%E3%81%8A%E5%90%8D%E5%89%8D%EF%BC%9A%0D%0A%E3%81%94%E9%80%A3%E7%B5%A1%E5%85%88%EF%BC%88%E9%9B%BB%E8%A9%B1%EF%BC%89%EF%BC%9A%0D%0A%E5%B8%8C%E6%9C%9B%E8%81%B7%E7%A8%AE%EF%BC%9A%0D%0A%E7%B5%8C%E9%A8%93%E5%B9%B4%E6%95%B0%EF%BC%9A%0D%0A%E5%B8%8C%E6%9C%9B%E5%B9%B4%E5%8F%8E%EF%BC%9A%0D%0A%0D%0A%E2%96%A0%E3%81%94%E8%B3%AA%E5%95%8F%E3%83%BB%E3%81%94%E8%A6%81%E6%9C%9B%EF%BC%9A%0D%0A" class="inline-flex items-center gap-3 bg-white/10 hover:bg-white/20 text-white border border-white/30 backdrop-blur px-10 py-5 rounded-full text-base font-medium transition">💬 メールで面談を申し込む</a>
     </div>
 
-    <!-- 応募フォーム：FormSubmit経由でge-saiyo@f-ship.jpへ送信（添付ファイル対応） -->
     <form id="apply-form"
           action="https://formsubmit.co/ge-saiyo@f-ship.jp"
           method="POST"
           enctype="multipart/form-data"
           class="bg-white/5 backdrop-blur border border-white/15 rounded-2xl p-6 sm:p-8 text-left max-w-2xl mx-auto">
-      <!-- FormSubmit設定項目（画面には表示されない） -->
       <input type="hidden" name="_subject" value="【LPより応募】エンジニア採用フォーム">
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_captcha" value="true">
       <input type="hidden" name="_next" value="https://www.f-ship.jp/thanks/">
-      <!-- ボット対策（このフィールドは空のまま） -->
       <input type="text" name="_honey" style="display:none">
 
       <h3 class="font-display font-bold text-white text-xl mb-5 flex items-center gap-2">✉️ 応募・お問い合わせフォーム</h3>
@@ -979,9 +1334,8 @@ details[open] .acc-icon{transform:rotate(45deg)}
   <div class="max-w-7xl mx-auto px-5 sm:px-8 py-14">
     <div class="grid md:grid-cols-4 gap-10 mb-10">
       <div class="md:col-span-2">
-        <!-- フッターロゴ: 公式画像を直接使用（ダーク背景上に反転） -->
         <div class="mb-5">
-          <img class="fs-logo-img-lg" style="filter:brightness(0) invert(1) drop-shadow(0 0 0 transparent);mix-blend-mode:screen;" src="https://www.f-ship.jp/_img/ja/resource/3/logo/_/" alt="Fellowship"
+          <img class="fs-logo-img-lg" style="filter:brightness(0) invert(1);" src="https://www.f-ship.jp/_img/ja/resource/3/logo/_/" alt="Fellowship"
                onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='block';"/>
           <span style="display:none;font-family:'Zen Kaku Gothic New',sans-serif;font-weight:900;font-size:36px;color:#fff;">Fellowship</span>
         </div>
@@ -992,7 +1346,7 @@ details[open] .acc-icon{transform:rotate(45deg)}
         <ul class="space-y-2 text-sm">
           <li><a href="#why" class="hover:text-brand-300 transition">選ばれる理由</a></li>
           <li><a href="#career" class="hover:text-brand-300 transition">キャリアパス</a></li>
-          <li><a href="#projects" class="hover:text-brand-300 transition">案件例</a></li>
+          <li><a href="#jobs" class="hover:text-brand-300 transition">案件一覧</a></li>
           <li><a href="#requirements" class="hover:text-brand-300 transition">募集要項</a></li>
           <li><a href="#faq" class="hover:text-brand-300 transition">FAQ</a></li>
           <li><a href="#apply" class="hover:text-brand-300 transition">応募・お問い合わせ</a></li>
@@ -1020,9 +1374,33 @@ details[open] .acc-icon{transform:rotate(45deg)}
   </div>
 </footer>
 
-<!-- モバイル固定応募ボタン -->
 <a href="#apply" class="lg:hidden fixed bottom-4 right-4 z-40 bg-brand-500 hover:bg-brand-600 text-white rounded-full shadow-2xl shadow-brand-500/40 px-5 py-3 font-bold text-sm flex items-center gap-2">
   ✉ 応募する
 </a>
+
+<!-- Jobs filter script -->
+<script>
+(function(){
+  const chips = document.querySelectorAll('#jobFilterChips .job-chip');
+  const cards = document.querySelectorAll('#jobList .job-card');
+  const countAll = document.getElementById('jobCountAll');
+  if (countAll) countAll.textContent = '(' + cards.length + ')';
+
+  chips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      chips.forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      const filter = chip.dataset.filter;
+      cards.forEach(card => {
+        if (filter === 'all' || card.dataset.cat === filter) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    });
+  });
+})();
+</script>
 </body>
 </html>
