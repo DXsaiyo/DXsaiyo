@@ -68,6 +68,34 @@ details[open] .acc-icon{transform:rotate(45deg)}
 .job-card[data-expanded="true"] .job-desc{display:block;-webkit-line-clamp:unset;overflow:visible}
 .job-toggle{display:none;cursor:pointer;background:none;border:none;padding:0;text-align:left}
 .job-card.has-overflow .job-toggle{display:inline-block}
+/* ========== フリーランス導線：シアン基調と差別化する温かいオレンジ系アクセント ========== */
+.btn-freelance{background:linear-gradient(135deg,#FF8A3D 0%,#FF6B35 100%);color:#fff;box-shadow:0 8px 24px -8px rgba(255,107,53,.55),0 0 0 1px rgba(255,255,255,.1) inset;transition:all .25s ease}
+.btn-freelance:hover{box-shadow:0 12px 32px -8px rgba(255,107,53,.75),0 0 0 1px rgba(255,255,255,.18) inset;transform:translateY(-1px)}
+.freelance-card-dark{background:linear-gradient(135deg,rgba(255,138,61,.12) 0%,rgba(255,107,53,.20) 100%);border:1px solid rgba(255,138,61,.4);backdrop-filter:blur(8px)}
+.freelance-text{color:#FF8A3D}
+.freelance-text:hover{color:#FF6B35}
+.freelance-pill{display:inline-flex;align-items:center;gap:6px;background:rgba(255,138,61,.15);border:1px solid rgba(255,138,61,.4);color:#FF8A3D;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.2em;padding:4px 10px;border-radius:999px;font-weight:700;text-transform:uppercase}
+/* ========== スマホ固定追従CTA：2ボタン構成（PC非表示） ========== */
+.mobile-sticky-cta{position:fixed;bottom:-100px;left:0;right:0;z-index:40;display:flex;gap:8px;padding:10px 12px;background:rgba(10,22,40,.94);backdrop-filter:blur(12px);border-top:1px solid rgba(0,168,204,.25);box-shadow:0 -8px 24px rgba(0,0,0,.4);transition:bottom .3s ease}
+.mobile-sticky-cta.show{bottom:0}
+.sticky-cta-btn{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:5px;padding:12px 6px;border-radius:9999px;font-size:12px;font-weight:700;letter-spacing:.02em;transition:all .2s;min-height:44px;white-space:nowrap}
+.sticky-cta-btn.primary{background:linear-gradient(135deg,#00E5FF 0%,#1DB5D0 100%);color:#0A1628;box-shadow:0 4px 12px rgba(0,229,255,.4)}
+.sticky-cta-btn.freelance{background:linear-gradient(135deg,#FF8A3D 0%,#FF6B35 100%);color:#fff;box-shadow:0 4px 12px rgba(255,107,53,.4)}
+@media (min-width:1024px){.mobile-sticky-cta{display:none !important}}
+/* ========== レスポンシブ強化 ========== */
+.table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+@media(max-width:640px){
+  .table-scroll table{min-width:640px}
+  .hero-h1{font-size:2.1rem!important;line-height:1.15!important}
+  .fs-logo-img{height:32px}
+  .growth-chart{height:200px}
+  .growth-bar-year{font-size:7px;bottom:-26px}
+  .growth-bar-label{font-size:8px;top:-22px}
+  .eyebrow{font-size:10px;letter-spacing:.25em}
+  .job-chip{padding:6px 12px;font-size:11px;min-height:34px}
+}
+/* スマホ固定CTAでフッターが隠れない用 */
+@media(max-width:1023px){body{padding-bottom:72px}}
 </style>
 </head>
 <body class="bg-white text-ink-700">
@@ -79,12 +107,13 @@ details[open] .acc-icon{transform:rotate(45deg)}
       <img class="fs-logo-img" src="https://www.f-ship.jp/_img/ja/resource/3/logo/_/" alt="Fellowship BUILD A GLOBAL CAREER" width="200" height="38" onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-flex';"/>
       <span style="display:none;align-items:center;gap:6px;font-family:'Zen Kaku Gothic New',sans-serif;font-weight:900;font-size:24px;color:#111;">Fellowship</span>
     </a>
-    <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-ink-700">
+    <nav class="hidden lg:flex items-center gap-7 text-sm font-medium text-ink-700">
       <a href="#why" class="hover:text-brand-500 transition">選ばれる理由</a>
       <a href="#career" class="hover:text-brand-500 transition">キャリアパス</a>
       <a href="#jobs" class="hover:text-brand-500 transition">案件一覧</a>
       <a href="#requirements" class="hover:text-brand-500 transition">募集要項</a>
       <a href="#faq" class="hover:text-brand-500 transition">FAQ</a>
+      <a href="https://dxsaiyo.github.io/freelanceDX/" target="_blank" rel="noopener" class="freelance-text hover:opacity-80 transition font-bold inline-flex items-center gap-1">💼 フリーランスの方はこちら</a>
     </nav>
     <a href="#apply" class="inline-flex items-center gap-2 bg-brand-500 hover:bg-brand-600 text-white px-5 py-2.5 rounded-full font-bold text-sm transition shadow-md">
       <span>今すぐ応募</span>
@@ -119,6 +148,22 @@ details[open] .acc-icon{transform:rotate(45deg)}
           </a>
           <a href="#jobs" class="inline-flex items-center gap-3 bg-white/10 hover:bg-white/20 text-white border border-white/25 backdrop-blur px-8 py-4 rounded-full text-base font-medium transition">
             <span>📋</span><span>案件一覧を見る</span>
+          </a>
+        </div>
+        <!-- フリーランス導線（Hero内、控えめだが視認性あり） -->
+        <div class="mt-6 freelance-card-dark rounded-2xl p-4 sm:p-5 max-w-2xl">
+          <a href="https://dxsaiyo.github.io/freelanceDX/" target="_blank" rel="noopener" class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 group">
+            <div class="flex items-start sm:items-center gap-3">
+              <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-[#FF8A3D] to-[#FF6B35] flex items-center justify-center text-xl flex-shrink-0">💼</div>
+              <div>
+                <span class="freelance-pill mb-1.5">FOR FREELANCE</span>
+                <p class="text-sm sm:text-base text-white font-bold leading-snug mt-1">フリーランス・ITコンサルの方は<span class="freelance-text">こちら</span></p>
+                <p class="text-[11px] text-white/65 mt-0.5">エンド直案件・高単価・継続フォローの専用LPへ →</p>
+              </div>
+            </div>
+            <span class="btn-freelance inline-flex items-center gap-2 px-5 py-3 rounded-full text-xs sm:text-sm font-bold flex-shrink-0 self-stretch sm:self-auto justify-center group-hover:translate-x-1 transition">
+              専用LPを見る →
+            </span>
           </a>
         </div>
         <div class="mt-14 grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 max-w-3xl">
@@ -425,7 +470,7 @@ details[open] .acc-icon{transform:rotate(45deg)}
       <p class="text-ink-500 text-sm">安定した正社員雇用という基盤があるかどうかが、キャリアの自由度を大きく変えます。</p>
     </div>
     <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-ink-100">
-      <div class="overflow-x-auto">
+      <div class="table-scroll">
         <table class="w-full text-sm">
           <thead>
             <tr class="bg-ink-900 text-white">
@@ -565,10 +610,10 @@ details[open] .acc-icon{transform:rotate(45deg)}
             <div class="flex items-center gap-2 mb-1"><span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-brand-500 text-white font-black text-[10px]">C</span><h3 class="font-display font-bold text-sm text-ink-900">本社勤務ルート</h3></div>
             <p class="text-[11px] text-ink-500 leading-relaxed">本社の中核として、技術教育・採用・新規事業に関わる。</p>
           </div>
-          <div class="bg-gradient-to-br from-ink-900 to-brand-900 rounded-xl p-4 text-white shadow-md border border-neon/30">
-            <div class="flex items-center gap-2 mb-1"><span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-neon text-ink-900 font-black text-[10px]">D</span><h3 class="font-display font-bold text-sm">フリーランス <span class="text-[9px] bg-neon text-ink-900 px-1 py-0.5 rounded ml-1">NEW</span></h3></div>
-            <p class="text-[11px] text-white/85 leading-relaxed">独立後も<strong class="text-neon">フェローシップから案件を直接受注</strong>。自由に選べる。</p>
-          </div>
+          <a href="https://dxsaiyo.github.io/freelanceDX/" target="_blank" rel="noopener" class="block bg-gradient-to-br from-[#FF8A3D] to-[#FF6B35] rounded-xl p-4 text-white shadow-md border border-white/20 hover:shadow-xl hover:-translate-y-0.5 transition-all group">
+            <div class="flex items-center gap-2 mb-1"><span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-white text-[#FF6B35] font-black text-[10px]">D</span><h3 class="font-display font-bold text-sm">フリーランス <span class="text-[9px] bg-white text-[#FF6B35] px-1.5 py-0.5 rounded ml-1 font-bold">専用LP</span></h3></div>
+            <p class="text-[11px] text-white/95 leading-relaxed">独立後も<strong class="text-white">フェローシップから案件を直接受注</strong>。<span class="font-bold underline-offset-2 group-hover:underline">専用サイトで詳細を見る →</span></p>
+          </a>
         </div>
       </div>
     </div>
@@ -798,7 +843,7 @@ details[open] .acc-icon{transform:rotate(45deg)}
           <span class="font-bold text-ink-900 pr-4">将来的にフリーランスとして独立することは可能？</span>
           <span class="acc-icon text-brand-500 text-xl font-light leading-none">+</span>
         </summary>
-        <div class="px-6 pb-6 text-sm text-ink-600 leading-relaxed border-t border-ink-100 pt-4">可能です。フェローシップでは正社員を卒業されたあと、<strong class="text-ink-900">フリーランスとして当社から直接案件を受注いただくルート</strong>も用意しています。独立直後のブランク期間や営業活動のリスクを避け、いままでの信頼関係をベースに案件を自由に選んで働けるスタイルです。</div>
+        <div class="px-6 pb-6 text-sm text-ink-600 leading-relaxed border-t border-ink-100 pt-4">可能です。フェローシップでは正社員を卒業されたあと、<strong class="text-ink-900">フリーランスとして当社から直接案件を受注いただくルート</strong>も用意しています。独立直後のブランク期間や営業活動のリスクを避け、いままでの信頼関係をベースに案件を自由に選んで働けるスタイルです。<br/><br/>すでにフリーランスとして活動されている方、ITコンサルとしてご活躍中の方は、<a href="https://dxsaiyo.github.io/freelanceDX/" target="_blank" rel="noopener" class="freelance-text font-bold underline hover:opacity-80">フリーランス専用LP →</a> もぜひご覧ください。</div>
       </details>
       <details class="group bg-ink-50 rounded-xl border border-ink-100 overflow-hidden">
         <summary class="flex items-center justify-between px-6 py-5 cursor-pointer select-none list-none hover:bg-ink-100 transition">
@@ -806,6 +851,13 @@ details[open] .acc-icon{transform:rotate(45deg)}
           <span class="acc-icon text-brand-500 text-xl font-light leading-none">+</span>
         </summary>
         <div class="px-6 pb-6 text-sm text-ink-600 leading-relaxed border-t border-ink-100 pt-4"><strong class="text-ink-900">基本は1人常駐を想定いただければと思います。</strong>ただ、既にフェローシップの先輩メンバーが常駐している現場に合流するケースや、案件を新規開拓中のため"一人目"として入るケースもあります。<br/><br/>重要なのは、<strong class="text-ink-900">"1人常駐で終わらない"</strong>ということです。現場で信頼を勝ち取ったあとは、営業担当が増員・リプレイスを提案し、あなた自身がリーダーとなって若手メンバーを迎え入れる<strong class="text-ink-900">「チーム体制」</strong>を築いていけます。また、Google Chatやオンライン月次会を通じて、他現場のメンバーとも常時つながれます。</div>
+      </details>
+      <details class="group bg-ink-50 rounded-xl border border-ink-100 overflow-hidden">
+        <summary class="flex items-center justify-between px-6 py-5 cursor-pointer select-none list-none hover:bg-ink-100 transition">
+          <span class="font-bold text-ink-900 pr-4">契約形態や指揮命令系統はクリアになっていますか？</span>
+          <span class="acc-icon text-brand-500 text-xl font-light leading-none">+</span>
+        </summary>
+        <div class="px-6 pb-6 text-sm text-ink-600 leading-relaxed border-t border-ink-100 pt-4">はい、<strong class="text-ink-900">契約形態と指揮命令系統を明確にした、コンプライアンス上クリーンな常駐</strong>のみを取り扱っています。<br/><br/>顧客との契約は、案件ごとに以下のいずれかで明確に区分されます。<br/>・<strong class="text-ink-900">顧客指揮命令型（労働者派遣契約）</strong>：派遣法に基づき顧客の指揮命令下で業務を行う形態<br/>・<strong class="text-ink-900">当社指揮命令型（業務委託契約）</strong>：成果物に対して当社が責任を持ち、当社の指揮命令下で業務を行う形態<br/><br/>どちらの場合も、契約と実態が乖離するような働き方（いわゆる偽装請負）は一切行いません。営業担当が顧客と契約条件・業務範囲・指揮命令系統を明確に取り決めた上で配属するため、安心して業務に集中いただけます。</div>
       </details>
       <details class="group bg-ink-50 rounded-xl border border-ink-100 overflow-hidden">
         <summary class="flex items-center justify-between px-6 py-5 cursor-pointer select-none list-none hover:bg-ink-100 transition">
@@ -839,9 +891,20 @@ details[open] .acc-icon{transform:rotate(45deg)}
     <p class="eyebrow !text-neon mb-5">JOIN US</p>
     <h2 class="font-display font-black text-4xl sm:text-5xl lg:text-6xl leading-tight mb-6">次のキャリアを、<br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-neon to-brand-200">フェローシップで。</span></h2>
     <p class="text-white/85 text-lg leading-relaxed max-w-2xl mx-auto mb-10">まずは話を聞いてみるだけでも大歓迎です。<br/>専任のキャリア支援担当が、あなたの経験とこれからを丁寧に伺います。</p>
-    <div class="flex flex-wrap justify-center gap-4 mb-10">
+    <div class="flex flex-wrap justify-center gap-4 mb-6">
       <a href="#apply-form" class="btn-glow inline-flex items-center gap-3 bg-gradient-to-r from-neon to-brand-400 hover:from-brand-300 hover:to-neon text-ink-900 font-bold px-10 py-5 rounded-full text-base transition-all">→ 応募フォームへ</a>
       <a href="mailto:ge-saiyo@f-ship.jp?subject=%E3%80%90%E3%82%AB%E3%82%B8%E3%83%A5%E3%82%A2%E3%83%AB%E9%9D%A2%E8%AB%87%E5%B8%8C%E6%9C%9B%E3%80%91%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E6%8E%A1%E7%94%A8LP%E3%82%88%E3%82%8A" class="inline-flex items-center gap-3 bg-white/10 hover:bg-white/20 text-white border border-white/30 backdrop-blur px-10 py-5 rounded-full text-base font-medium transition">💬 メールで面談を申し込む</a>
+    </div>
+    <!-- フリーランス向けの選択肢を控えめに提示 -->
+    <div class="flex items-center justify-center gap-3 mb-6 text-white/60 text-sm">
+      <div class="h-px w-12 bg-white/20"></div>
+      <span>もしくは</span>
+      <div class="h-px w-12 bg-white/20"></div>
+    </div>
+    <div class="flex justify-center mb-10">
+      <a href="https://dxsaiyo.github.io/freelanceDX/" target="_blank" rel="noopener" class="btn-freelance inline-flex items-center gap-3 px-10 py-4 rounded-full text-base font-bold transition-all">
+        <span>💼</span><span>フリーランスの方は専用LPへ</span><span>→</span>
+      </a>
     </div>
     <form id="apply-form" action="https://formsubmit.co/ge-saiyo@f-ship.jp" method="POST" enctype="multipart/form-data" class="bg-white/5 backdrop-blur border border-white/15 rounded-2xl p-6 sm:p-8 text-left max-w-2xl mx-auto">
       <input type="hidden" name="_subject" value="【LPより応募】エンジニア採用フォーム">
@@ -880,7 +943,25 @@ details[open] .acc-icon{transform:rotate(45deg)}
 
 <!-- ========== FOOTER ========== -->
 <footer class="bg-ink-900 text-white/70">
-  <div class="max-w-7xl mx-auto px-5 sm:px-8 py-14">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 pt-14 pb-10">
+    <!-- フリーランス導線バナー（フッター先頭で最終アピール） -->
+    <a href="https://dxsaiyo.github.io/freelanceDX/" target="_blank" rel="noopener" class="block mb-12 freelance-card-dark rounded-2xl p-6 lg:p-8 hover:shadow-2xl transition-all group relative overflow-hidden">
+      <div class="absolute -top-20 -right-20 w-60 h-60 rounded-full bg-[#FF8A3D]/15 blur-3xl pointer-events-none"></div>
+      <div class="relative flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5">
+        <div class="flex items-start sm:items-center gap-4">
+          <div class="w-14 h-14 lg:w-16 lg:h-16 rounded-2xl bg-gradient-to-br from-[#FF8A3D] to-[#FF6B35] flex items-center justify-center text-3xl lg:text-4xl flex-shrink-0 shadow-lg shadow-orange-500/30">💼</div>
+          <div>
+            <span class="freelance-pill mb-2">FOR FREELANCE / IT CONSULTANT</span>
+            <h3 class="font-display font-black text-lg sm:text-xl lg:text-2xl text-white leading-snug mt-1 mb-1">フリーランスエンジニア・<br class="sm:hidden"/>ITコンサルタント募集中</h3>
+            <p class="text-xs sm:text-sm text-white/75 leading-relaxed">エンド直案件・高単価・継続フォロー。フリーランス専用LPで詳細をご案内しています。</p>
+          </div>
+        </div>
+        <span class="btn-freelance inline-flex items-center gap-2 px-6 py-3 rounded-full font-bold text-sm flex-shrink-0 self-stretch sm:self-auto justify-center group-hover:translate-x-1 transition">
+          専用LPを見る →
+        </span>
+      </div>
+    </a>
+
     <div class="grid md:grid-cols-4 gap-10 mb-10">
       <div class="md:col-span-2">
         <div class="mb-5">
@@ -905,7 +986,7 @@ details[open] .acc-icon{transform:rotate(45deg)}
         <ul class="space-y-2 text-sm">
           <li><a href="https://www.f-ship.jp/company/" target="_blank" rel="noopener" class="hover:text-brand-300 transition">会社概要</a></li>
           <li><a href="https://www.f-ship.jp/company/recruit/" target="_blank" rel="noopener" class="hover:text-brand-300 transition">採用情報</a></li>
-          <li><a href="https://dxsaiyo.github.io/freelanceDX/" target="_blank" rel="noopener" class="hover:text-brand-300 transition">フリーランス案件はこちら</a></li>
+          <li><a href="https://dxsaiyo.github.io/freelanceDX/" target="_blank" rel="noopener" class="freelance-text hover:opacity-80 transition font-semibold">💼 フリーランス案件はこちら</a></li>
           <li><a href="https://www.f-ship.jp/news/" target="_blank" rel="noopener" class="hover:text-brand-300 transition">ニュース</a></li>
           <li><a href="https://www.f-ship.jp/privacy/" target="_blank" rel="noopener" class="hover:text-brand-300 transition">プライバシーポリシー</a></li>
         </ul>
@@ -922,7 +1003,29 @@ details[open] .acc-icon{transform:rotate(45deg)}
   </div>
 </footer>
 
-<a href="#apply" class="lg:hidden fixed bottom-4 right-4 z-40 bg-brand-500 hover:bg-brand-600 text-white rounded-full shadow-2xl shadow-brand-500/40 px-5 py-3 font-bold text-sm flex items-center gap-2">✉ 応募する</a>
+<!-- スマホ固定追従CTA：正社員＋フリーランスの2ボタン構成（スクロール400px以降に表示） -->
+<div id="mobileStickyCTA" class="mobile-sticky-cta lg:hidden">
+  <a href="#apply" class="sticky-cta-btn primary">
+    <span>✉</span><span>正社員応募</span>
+  </a>
+  <a href="https://dxsaiyo.github.io/freelanceDX/" target="_blank" rel="noopener" class="sticky-cta-btn freelance">
+    <span>💼</span><span>フリーランス</span>
+  </a>
+</div>
+
+<script>
+// スマホ固定追従CTA：Heroを過ぎたら表示
+(function(){
+  var cta = document.getElementById('mobileStickyCTA');
+  if(!cta) return;
+  function onScroll(){
+    if(window.scrollY > 400){ cta.classList.add('show'); }
+    else { cta.classList.remove('show'); }
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+})();
+</script>
 
 <!-- ========== JOBS DATA & DYNAMIC RENDER ========== -->
 <script>
