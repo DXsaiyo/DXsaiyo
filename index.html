@@ -892,7 +892,7 @@ details[open] .acc-icon{transform:rotate(45deg)}
     <h2 class="font-display font-black text-4xl sm:text-5xl lg:text-6xl leading-tight mb-6">次のキャリアを、<br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-neon to-brand-200">フェローシップで。</span></h2>
     <p class="text-white/85 text-lg leading-relaxed max-w-2xl mx-auto mb-10">まずは話を聞いてみるだけでも大歓迎です。<br/>専任のキャリア支援担当が、あなたの経験とこれからを丁寧に伺います。</p>
     <div class="flex flex-wrap justify-center gap-4 mb-6">
-      <a href="#apply-form" class="btn-glow inline-flex items-center gap-3 bg-gradient-to-r from-neon to-brand-400 hover:from-brand-300 hover:to-neon text-ink-900 font-bold px-10 py-5 rounded-full text-base transition-all">→ 応募フォームへ</a>
+      <a href="https://www.f-ship.jp/company/recruit/recruit_form/" target="_blank" rel="noopener" class="btn-glow inline-flex items-center gap-3 bg-gradient-to-r from-neon to-brand-400 hover:from-brand-300 hover:to-neon text-ink-900 font-bold px-10 py-5 rounded-full text-base transition-all">→ 応募・お問い合わせフォームへ</a>
       <a href="mailto:ge-saiyo@f-ship.jp?subject=%E3%80%90%E3%82%AB%E3%82%B8%E3%83%A5%E3%82%A2%E3%83%AB%E9%9D%A2%E8%AB%87%E5%B8%8C%E6%9C%9B%E3%80%91%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E6%8E%A1%E7%94%A8LP%E3%82%88%E3%82%8A" class="inline-flex items-center gap-3 bg-white/10 hover:bg-white/20 text-white border border-white/30 backdrop-blur px-10 py-5 rounded-full text-base font-medium transition">💬 メールで面談を申し込む</a>
     </div>
     <!-- フリーランス向けの選択肢を控えめに提示 -->
@@ -906,38 +906,6 @@ details[open] .acc-icon{transform:rotate(45deg)}
         <span>💼</span><span>フリーランスの方は専用LPへ</span><span>→</span>
       </a>
     </div>
-    <form id="apply-form" action="https://formsubmit.co/ge-saiyo@f-ship.jp" method="POST" enctype="multipart/form-data" class="bg-white/5 backdrop-blur border border-white/15 rounded-2xl p-6 sm:p-8 text-left max-w-2xl mx-auto">
-      <input type="hidden" name="_subject" value="【LPより応募】エンジニア採用フォーム">
-      <input type="hidden" name="_template" value="table">
-      <input type="hidden" name="_captcha" value="true">
-      <input type="hidden" name="_next" value="https://www.f-ship.jp/thanks/">
-      <input type="text" name="_honey" style="display:none">
-      <h3 class="font-display font-bold text-white text-xl mb-5 flex items-center gap-2">✉️ 応募・お問い合わせフォーム</h3>
-      <div class="grid sm:grid-cols-2 gap-4 mb-4">
-        <div><label class="block text-xs text-white/70 mb-1.5 font-mono">お名前 <span class="text-red-300">*</span></label><input type="text" name="お名前" required class="w-full bg-white/90 text-ink-900 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-neon" placeholder="山田 太郎"/></div>
-        <div><label class="block text-xs text-white/70 mb-1.5 font-mono">メールアドレス <span class="text-red-300">*</span></label><input type="email" name="メールアドレス" required class="w-full bg-white/90 text-ink-900 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-neon" placeholder="your@email.com"/></div>
-      </div>
-      <div class="mb-4">
-        <label class="block text-xs text-white/70 mb-1.5 font-mono">電話番号</label><input type="tel" name="電話番号" class="w-full bg-white/90 text-ink-900 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-neon" placeholder="090-1234-5678"/>
-      </div>
-      <div class="grid sm:grid-cols-2 gap-4 mb-4">
-        <div><label class="block text-xs text-white/70 mb-1.5 font-mono">希望職種 <span class="text-red-300">*</span></label>
-          <select name="希望職種" required class="w-full bg-white/90 text-ink-900 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-neon">
-            <option value="">選択してください</option><option>プロジェクトマネージャー（PM）</option><option>PMO／ITコンサル支援</option><option>AI / LLM エンジニア</option><option>サーバーサイドエンジニア</option><option>フロントエンドエンジニア</option><option>インフラ・クラウドエンジニア</option><option>Webディレクター／Webプロデューサー</option><option>3Dデザイナー／TA／クリエイター</option><option>モバイル／ゲーム</option><option>組込／モビリティ／LSI・FPGA</option><option>社内SE・情シス／セキュリティ</option><option>データサイエンティスト</option><option>QA／テストエンジニア</option><option>営業・マーケティング支援</option><option>その他</option>
-          </select>
-        </div>
-        <div><label class="block text-xs text-white/70 mb-1.5 font-mono">経験年数 <span class="text-red-300">*</span></label>
-          <select name="経験年数" required class="w-full bg-white/90 text-ink-900 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-neon">
-            <option value="">選択してください</option><option>1〜2年（要相談）</option><option>3〜5年</option><option>6〜10年</option><option>10年以上</option>
-          </select>
-        </div>
-      </div>
-      <div class="mb-4"><label class="block text-xs text-white/70 mb-1.5 font-mono">希望年収</label><input type="text" name="希望年収" class="w-full bg-white/90 text-ink-900 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-neon" placeholder="例：600万円 〜"/></div>
-      <div class="mb-4"><label class="block text-xs text-white/70 mb-1.5 font-mono">履歴書・職務経歴書（任意）</label><input type="file" name="履歴書_職務経歴書" accept=".pdf,.doc,.docx,.xls,.xlsx,.txt,.zip" multiple class="w-full bg-white/90 text-ink-900 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-neon file:mr-3 file:py-1.5 file:px-3 file:rounded-md file:border-0 file:text-xs file:bg-brand-500 file:text-white file:cursor-pointer hover:file:bg-brand-600"/><p class="text-[11px] text-white/60 mt-1.5">※PDF / Word / Excel / ZIP 対応。複数ファイル選択可。</p></div>
-      <div class="mb-5"><label class="block text-xs text-white/70 mb-1.5 font-mono">ご質問・ご要望</label><textarea name="ご質問_ご要望" rows="4" class="w-full bg-white/90 text-ink-900 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-neon" placeholder="現在のご状況、興味のある技術領域、面談希望日時などをご自由にお書きください。"></textarea></div>
-      <button type="submit" class="w-full btn-glow bg-gradient-to-r from-neon to-brand-400 hover:from-brand-300 hover:to-neon text-ink-900 font-bold py-4 rounded-lg transition">→ 送信する</button>
-      <p class="text-xs text-white/60 mt-4 text-center">※送信先：ge-saiyo@f-ship.jp ／ ご記入いただいた情報は<a href="https://www.f-ship.jp/privacy/" class="underline hover:text-neon" target="_blank" rel="noopener">プライバシーポリシー</a>に基づき厳重に管理します。</p>
-    </form>
   </div>
 </section>
 
