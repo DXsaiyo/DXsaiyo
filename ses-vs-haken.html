@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>SESと派遣の違い｜契約形態・指揮命令権・偽装請負を図解で完全解説｜株式会社フェローシップ</title>
+<meta name="description" content="SESと派遣の違いを図解で完全解説。指揮命令権の所在、契約形態、メリット・デメリット、偽装請負との境界線まで、厚生労働省ガイドラインに基づき正確に整理します。"/>
+<meta name="robots" content="index,follow"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Zen+Kaku+Gothic+New:wght@500;700;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>
+tailwind.config={theme:{extend:{colors:{brand:{50:'#E6F8FC',100:'#C4EDF5',200:'#8ADBEB',300:'#4FC8E0',400:'#1DB5D0',500:'#00A8CC',600:'#008FAE',700:'#00708A',800:'#005267',900:'#003445'},ink:{50:'#F5F7FA',100:'#E4E8EF',200:'#C5CEDA',300:'#98A5B6',500:'#4A5A72',700:'#1F2B40',800:'#131C2E',900:'#0A1628'},neon:'#00E5FF',warn:'#FF6B6B',accent:'#FFB547'},fontFamily:{sans:['"Noto Sans JP"','sans-serif'],display:['"Zen Kaku Gothic New"','"Noto Sans JP"','sans-serif'],mono:['"JetBrains Mono"','Consolas','Menlo','monospace']}}}}
+</script>
+<style>
+html{scroll-behavior:smooth}
+section[id]{scroll-margin-top:72px}
+body{font-family:'Noto Sans JP',sans-serif;background:#fff;color:#1F2B40;-webkit-font-smoothing:antialiased;letter-spacing:.02em}
+
+/* ====== 共通スタイル：本体LPと統一 ====== */
+.hero-bg{background:radial-gradient(1200px 600px at 15% 20%,rgba(0,229,255,.25) 0%,transparent 60%),radial-gradient(900px 500px at 85% 40%,rgba(0,168,204,.35) 0%,transparent 55%),radial-gradient(800px 600px at 50% 100%,rgba(0,112,138,.4) 0%,transparent 60%),linear-gradient(135deg,#0A1628 0%,#003445 50%,#00708A 100%)}
+.grid-pattern{background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:48px 48px}
+.noise::before{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.08 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");opacity:.6;pointer-events:none;mix-blend-mode:overlay}
+.accent-bar{display:inline-block;width:4px;background:linear-gradient(180deg,#00E5FF,#00A8CC);border-radius:2px}
+.big-num{font-family:'Zen Kaku Gothic New',sans-serif;font-weight:900;line-height:1;background:linear-gradient(135deg,#00A8CC 0%,#00E5FF 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sep{height:1px;background:linear-gradient(90deg,transparent,rgba(0,168,204,.35),transparent)}
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.35em;color:#00A8CC;font-weight:600;text-transform:uppercase}
+.btn-glow{box-shadow:0 10px 30px -10px rgba(0,229,255,.55),0 0 0 1px rgba(255,255,255,.1) inset}
+.btn-glow:hover{box-shadow:0 14px 36px -8px rgba(0,229,255,.75),0 0 0 1px rgba(255,255,255,.18) inset}
+.cta-bg{background:radial-gradient(1000px 500px at 20% 30%,rgba(0,229,255,.25) 0%,transparent 60%),radial-gradient(900px 500px at 80% 70%,rgba(0,168,204,.35) 0%,transparent 60%),linear-gradient(135deg,#003445 0%,#00708A 100%)}
+.card-hover{transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s ease,border-color .35s ease}
+.card-hover:hover{transform:translateY(-4px);box-shadow:0 20px 44px -16px rgba(0,112,138,.22)}
+
+/* ====== このページ専用：図解スタイル ====== */
+.blueprint{
+  background:
+    radial-gradient(900px 500px at 50% 0%,rgba(0,229,255,.06) 0%,transparent 60%),
+    linear-gradient(180deg,#0A1628 0%,#131C2E 100%);
+  position:relative;
+}
+.blueprint::before{
+  content:'';position:absolute;inset:0;
+  background-image:linear-gradient(rgba(0,229,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(0,229,255,.05) 1px,transparent 1px);
+  background-size:32px 32px;
+  pointer-events:none;
+  mask-image:radial-gradient(ellipse at center,black 40%,transparent 90%);
+  -webkit-mask-image:radial-gradient(ellipse at center,black 40%,transparent 90%);
+}
+.diagram-card{
+  background:linear-gradient(160deg,rgba(255,255,255,.04) 0%,rgba(255,255,255,.01) 100%);
+  border:1px solid rgba(0,168,204,.18);
+  border-radius:20px;
+  backdrop-filter:blur(6px);
+  position:relative;
+  overflow:hidden;
+}
+.diagram-card::after{
+  content:'';position:absolute;inset:0;border-radius:20px;pointer-events:none;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.06);
+}
+.diagram-tag{
+  display:inline-flex;align-items:center;gap:6px;
+  font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.25em;
+  padding:5px 12px;border-radius:999px;font-weight:700;text-transform:uppercase;
+}
+.tag-haken{background:rgba(255,181,71,.12);color:#FFB547;border:1px solid rgba(255,181,71,.4)}
+.tag-ses{background:rgba(0,229,255,.12);color:#00E5FF;border:1px solid rgba(0,229,255,.4)}
+.tag-illegal{background:rgba(255,107,107,.12);color:#FF6B6B;border:1px solid rgba(255,107,107,.4)}
+
+/* テーブル */
+.cmp-table{width:100%;border-collapse:separate;border-spacing:0;font-size:14.5px}
+.cmp-table th,.cmp-table td{padding:18px 20px;text-align:left;vertical-align:top;border-bottom:1px solid #E4E8EF}
+.cmp-table thead th{background:#0A1628;color:#fff;font-weight:700;font-size:13px;letter-spacing:.05em}
+.cmp-table thead th:first-child{border-top-left-radius:12px}
+.cmp-table thead th:last-child{border-top-right-radius:12px}
+.cmp-table tbody tr:nth-child(odd) td{background:#F5F7FA}
+.cmp-table .col-label{font-weight:700;color:#0A1628;width:24%;background:#fff !important}
+.cmp-table tbody tr:nth-child(odd) .col-label{background:#F5F7FA !important}
+.cmp-table .col-haken{color:#1F2B40}
+.cmp-table .col-ses{color:#1F2B40;background:rgba(0,168,204,.04) !important;border-left:2px solid rgba(0,168,204,.3)}
+.cmp-table tbody tr:nth-child(odd) .col-ses{background:rgba(0,168,204,.08) !important}
+.cmp-table .col-ukeoi{color:#4A5A72}
+
+/* メリデメ */
+.pmcard{position:relative;border-radius:18px;padding:28px;background:#fff;border:1px solid #E4E8EF}
+.pmcard.merit{border-top:3px solid #00A8CC}
+.pmcard.demerit{border-top:3px solid #FFB547}
+.pm-icon{width:36px;height:36px;border-radius:10px;display:inline-flex;align-items:center;justify-content:center;font-weight:900;font-family:'Zen Kaku Gothic New',sans-serif;font-size:18px}
+.pm-icon.merit{background:linear-gradient(135deg,#E6F8FC 0%,#C4EDF5 100%);color:#00708A}
+.pm-icon.demerit{background:linear-gradient(135deg,#FFF4DE 0%,#FFE4B0 100%);color:#9B5B00}
+
+/* 警告ボックス */
+.warn-box{
+  background:linear-gradient(160deg,rgba(255,107,107,.06) 0%,rgba(255,107,107,.02) 100%);
+  border:1px solid rgba(255,107,107,.3);
+  border-left:4px solid #FF6B6B;
+  border-radius:14px;
+}
+
+/* FAQ */
+details.faq{background:#fff;border:1px solid #E4E8EF;border-radius:14px;transition:all .25s}
+details.faq[open]{border-color:rgba(0,168,204,.4);box-shadow:0 12px 32px -16px rgba(0,168,204,.2)}
+details.faq summary{cursor:pointer;list-style:none;padding:20px 24px;display:flex;align-items:flex-start;gap:14px;font-weight:700;color:#0A1628}
+details.faq summary::-webkit-details-marker{display:none}
+.faq-q{color:#00A8CC;font-family:'Zen Kaku Gothic New',sans-serif;font-weight:900;flex-shrink:0;font-size:18px;line-height:1.4}
+.acc-icon{margin-left:auto;transition:transform .25s ease;color:#98A5B6;flex-shrink:0;font-weight:300;font-size:22px;line-height:1}
+details.faq[open] .acc-icon{transform:rotate(45deg);color:#00A8CC}
+.faq-body{padding:0 24px 22px 56px;color:#4A5A72;line-height:1.85}
+
+/* 厚労省バッジ（偽装請負セクションの注釈で使用） */
+.gov-badge{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.15em;padding:2px 6px;border-radius:4px;background:#0A1628;color:#fff;font-weight:700;margin-right:6px;vertical-align:middle}
+
+/* TL;DR ボックス */
+.tldr-box{
+  background:linear-gradient(135deg,#0A1628 0%,#003445 100%);
+  border-radius:24px;
+  position:relative;
+  overflow:hidden;
+}
+.tldr-box::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(600px 300px at 80% 20%,rgba(0,229,255,.2) 0%,transparent 60%);
+  pointer-events:none;
+}
+
+/* シルクハイライト */
+.highlight-cyan{
+  background:linear-gradient(transparent 60%,rgba(0,229,255,.25) 60%);
+  font-weight:700;
+}
+.highlight-amber{
+  background:linear-gradient(transparent 60%,rgba(255,181,71,.35) 60%);
+  font-weight:700;
+}
+
+/* レスポンシブ調整 */
+@media(max-width:1023px){
+  body{padding-bottom:0}
+}
+@media(max-width:640px){
+  .hero-h1{font-size:2rem!important;line-height:1.2!important}
+  .cmp-table th,.cmp-table td{padding:14px 12px;font-size:13px}
+  .cmp-table .col-label{width:30%}
+  .eyebrow{font-size:10px;letter-spacing:.25em}
+  .pmcard{padding:22px}
+  details.faq summary{padding:16px 18px;font-size:14px}
+  .faq-body{padding:0 18px 18px 48px;font-size:14px}
+  .faq-q{font-size:16px}
+}
+.table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+@media(max-width:640px){.table-scroll table{min-width:560px}}
+
+/* SVG用ユーティリティ */
+.svg-label{font-family:'Noto Sans JP',sans-serif;font-weight:700}
+.svg-label-mono{font-family:'JetBrains Mono',monospace;font-weight:600;letter-spacing:.05em}
+</style>
+</head>
+<body>
+
+<!-- ========== HEADER ========== -->
+<header class="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-white/85 border-b border-ink-100">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between">
+    <a href="index.html" aria-label="Fellowship" class="flex items-center">
+      <img class="block h-9 w-auto" src="https://www.f-ship.jp/_img/ja/resource/3/logo/_/" alt="Fellowship BUILD A GLOBAL CAREER" width="200" height="38" onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-flex';"/>
+      <span style="display:none;align-items:center;gap:6px;font-family:'Zen Kaku Gothic New',sans-serif;font-weight:900;font-size:22px;color:#111;">Fellowship</span>
+    </a>
+    <nav class="hidden lg:flex items-center gap-7 text-sm font-medium text-ink-700">
+      <a href="#core" class="hover:text-brand-500 transition">核心の違い</a>
+      <a href="#diagram" class="hover:text-brand-500 transition">図解で理解</a>
+      <a href="#compare" class="hover:text-brand-500 transition">比較表</a>
+      <a href="#meridemeri" class="hover:text-brand-500 transition">メリデメ</a>
+      <a href="#illegal" class="hover:text-brand-500 transition">偽装請負</a>
+      <a href="#faq" class="hover:text-brand-500 transition">FAQ</a>
+    </nav>
+    <a href="index.html#apply" class="inline-flex items-center gap-2 bg-brand-500 hover:bg-brand-600 text-white px-4 sm:px-5 py-2 sm:py-2.5 rounded-full font-bold text-xs sm:text-sm transition shadow-md">
+      <span>採用情報へ戻る</span>
+    </a>
+  </div>
+</header>
+
+<!-- ========== HERO ========== -->
+<section class="relative hero-bg noise overflow-hidden pt-16">
+  <div class="absolute inset-0 grid-pattern pointer-events-none"></div>
+  <div class="relative max-w-7xl mx-auto px-5 sm:px-8 pt-16 sm:pt-24 pb-16 sm:pb-24">
+    <div class="mb-6 flex items-center gap-3 flex-wrap">
+      <span class="eyebrow text-brand-300">/&nbsp;UNDERSTANDING&nbsp;THE&nbsp;DIFFERENCE</span>
+      <span class="text-xs text-white/40 font-mono">2025 Edition</span>
+    </div>
+    <h1 class="hero-h1 font-display font-black text-white text-4xl sm:text-5xl lg:text-6xl leading-[1.1] tracking-tight">
+      SES と 派遣 は、<br/>
+      <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#00E5FF] via-[#4FC8E0] to-[#00A8CC]">何が違うのか。</span>
+    </h1>
+    <p class="mt-6 sm:mt-8 text-white/75 text-base sm:text-lg leading-[1.95] max-w-3xl">
+      「SES＝派遣」と説明されることがありますが、それは正確ではありません。<br class="hidden sm:block"/>
+      契約形態・指揮命令権・法的根拠まで、<span class="text-white font-semibold">厚生労働省ガイドラインに基づいて</span>図解で整理します。
+    </p>
+    <div class="mt-10 flex flex-wrap gap-3">
+      <a href="#core" class="inline-flex items-center gap-2 bg-gradient-to-r from-neon to-brand-400 text-ink-900 px-7 py-3.5 rounded-full font-bold text-sm btn-glow transition">
+        まず結論を見る →
+      </a>
+      <a href="#diagram" class="inline-flex items-center gap-2 bg-white/5 hover:bg-white/10 text-white px-7 py-3.5 rounded-full font-medium text-sm border border-white/15 transition">
+        図解から読む
+      </a>
+    </div>
+
+    <!-- ヒーロー下部の数値ティーザー -->
+    <div class="mt-14 sm:mt-20 grid grid-cols-3 gap-4 sm:gap-8 max-w-3xl">
+      <div>
+        <div class="big-num text-3xl sm:text-5xl">1</div>
+        <div class="mt-2 text-white/60 text-xs sm:text-sm leading-relaxed">違いの本質は<br/>「指揮命令権の所在」</div>
+      </div>
+      <div>
+        <div class="big-num text-3xl sm:text-5xl">3</div>
+        <div class="mt-2 text-white/60 text-xs sm:text-sm leading-relaxed">理解すべき<br/>契約形態の種類</div>
+      </div>
+      <div>
+        <div class="big-num text-3xl sm:text-5xl">2</div>
+        <div class="mt-2 text-white/60 text-xs sm:text-sm leading-relaxed">参照すべき<br/>厚労省の公式資料</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== TL;DR ========== -->
+<section id="core" class="relative bg-white py-20 sm:py-28">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="flex items-center gap-3 mb-5">
+      <span class="accent-bar h-6"></span>
+      <span class="eyebrow">/&nbsp;THE&nbsp;CORE&nbsp;ANSWER</span>
+    </div>
+    <h2 class="font-display font-black text-ink-900 text-3xl sm:text-4xl lg:text-5xl leading-tight">
+      結論を、一行で。
+    </h2>
+    <p class="mt-5 text-ink-500 text-base sm:text-lg max-w-3xl leading-relaxed">
+      細かい話に入る前に、両者を分ける一点だけ押さえてください。
+    </p>
+
+    <!-- TL;DR ボックス -->
+    <div class="tldr-box mt-12 p-8 sm:p-14">
+      <div class="relative z-10 grid lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-1">
+          <div class="font-mono text-neon text-xs tracking-[.3em] font-bold">TL;DR</div>
+        </div>
+        <div class="lg:col-span-11">
+          <p class="text-white text-xl sm:text-2xl lg:text-3xl font-display font-bold leading-[1.6]">
+            違いの本質は <span class="highlight-cyan text-white">「誰がエンジニアに業務指示を出せるか」</span>。<br class="hidden sm:block"/>
+            派遣は<span class="text-accent">クライアント企業</span>が、SESは<span class="text-neon">所属企業（SES会社）</span>が指示を出します。
+          </p>
+          <div class="mt-6 grid sm:grid-cols-2 gap-4">
+            <div class="p-5 rounded-xl border border-white/10 bg-white/5">
+              <div class="diagram-tag tag-haken mb-3">PATTERN&nbsp;A&nbsp;/&nbsp;派遣</div>
+              <p class="text-white/85 text-sm sm:text-base leading-relaxed">
+                エンジニアは派遣会社に雇用されつつ、<span class="text-accent font-bold">派遣先（クライアント）の指揮命令</span>を受けて働く。
+              </p>
+            </div>
+            <div class="p-5 rounded-xl border border-white/10 bg-white/5">
+              <div class="diagram-tag tag-ses mb-3">PATTERN&nbsp;B&nbsp;/&nbsp;SES</div>
+              <p class="text-white/85 text-sm sm:text-base leading-relaxed">
+                エンジニアはSES会社に雇用され、<span class="text-neon font-bold">所属企業（SES会社）の指揮命令</span>下で業務を遂行する。
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="mt-8 text-ink-500 text-sm leading-relaxed max-w-3xl">
+      ※ この差は単なる呼称の違いではなく、<strong class="text-ink-900">法律で定められた契約形態の違い</strong>です。<br/>
+      派遣は「労働者派遣法」、SESは「民法上の準委任契約（民法656条）」に基づきます。
+    </p>
+  </div>
+</section>
+
+<!-- ========== MAIN DIAGRAM ========== -->
+<section id="diagram" class="relative blueprint py-20 sm:py-28">
+  <div class="relative max-w-7xl mx-auto px-5 sm:px-8">
+
+    <div class="flex items-center gap-3 mb-5">
+      <span class="accent-bar h-6"></span>
+      <span class="eyebrow text-brand-300">/&nbsp;STRUCTURAL&nbsp;DIAGRAM</span>
+    </div>
+    <h2 class="font-display font-black text-white text-3xl sm:text-4xl lg:text-5xl leading-tight">
+      図解 ① 契約構造の比較
+    </h2>
+    <p class="mt-5 text-white/65 text-base sm:text-lg max-w-3xl leading-relaxed">
+      雇用契約・商取引契約・指揮命令の3本のラインがどこに引かれるか。<br/>
+      ここを見れば、両者の違いは一目で分かります。
+    </p>
+
+    <!-- 凡例 -->
+    <div class="mt-8 flex flex-wrap gap-x-6 gap-y-3 text-xs">
+      <span class="flex items-center gap-2 text-white/80"><span class="inline-block w-8 h-[3px] bg-brand-400 rounded"></span> 雇用契約 / 給与支払</span>
+      <span class="flex items-center gap-2 text-white/80"><span class="inline-block w-8 h-[3px]" style="background:repeating-linear-gradient(90deg,#FFB547 0 5px,transparent 5px 10px)"></span> 商取引契約</span>
+      <span class="flex items-center gap-2 text-white/80"><span class="inline-block w-8 h-[3px] bg-neon rounded shadow-[0_0_8px_#00E5FF]"></span> 指揮命令（業務指示）</span>
+    </div>
+
+    <!-- 2カラム図解 -->
+    <div class="mt-10 grid lg:grid-cols-2 gap-6 lg:gap-8">
+
+      <!-- ===== 派遣 ===== -->
+      <div class="diagram-card p-6 sm:p-8">
+        <div class="flex items-center justify-between mb-6">
+          <div class="diagram-tag tag-haken">A&nbsp;/&nbsp;派遣&nbsp;契約</div>
+          <span class="font-mono text-[10px] text-white/40">労働者派遣法</span>
+        </div>
+
+        <svg viewBox="0 0 480 440" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto" aria-label="派遣契約の構造図">
+          <defs>
+            <marker id="arr-cyan-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+              <path d="M0,0 L10,5 L0,10 z" fill="#4FC8E0"/>
+            </marker>
+            <marker id="arr-neon-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+              <path d="M0,0 L10,5 L0,10 z" fill="#00E5FF"/>
+            </marker>
+            <filter id="glow-a" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur stdDeviation="2.5" result="b"/>
+              <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+          </defs>
+
+          <!-- 派遣会社（左上） -->
+          <g>
+            <rect x="20" y="40" width="170" height="84" rx="12" fill="rgba(0,229,255,0.06)" stroke="rgba(0,229,255,0.5)" stroke-width="1.5"/>
+            <text x="105" y="68" text-anchor="middle" class="svg-label-mono" font-size="10" fill="#4FC8E0" letter-spacing="2">EMPLOYER</text>
+            <text x="105" y="94" text-anchor="middle" class="svg-label" font-size="17" fill="#fff" font-weight="900">派遣会社</text>
+            <text x="105" y="112" text-anchor="middle" class="svg-label" font-size="10" fill="rgba(255,255,255,.5)">（人材派遣会社）</text>
+          </g>
+
+          <!-- 派遣先（右上） -->
+          <g>
+            <rect x="290" y="40" width="170" height="84" rx="12" fill="rgba(255,181,71,0.08)" stroke="rgba(255,181,71,0.5)" stroke-width="1.5"/>
+            <text x="375" y="68" text-anchor="middle" class="svg-label-mono" font-size="10" fill="#FFB547" letter-spacing="2">CLIENT</text>
+            <text x="375" y="94" text-anchor="middle" class="svg-label" font-size="17" fill="#fff" font-weight="900">派遣先企業</text>
+            <text x="375" y="112" text-anchor="middle" class="svg-label" font-size="10" fill="rgba(255,255,255,.5)">（クライアント）</text>
+          </g>
+
+          <!-- エンジニア（中央下） -->
+          <g>
+            <rect x="155" y="330" width="170" height="84" rx="12" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/>
+            <text x="240" y="358" text-anchor="middle" class="svg-label-mono" font-size="10" fill="rgba(255,255,255,.7)" letter-spacing="2">WORKER</text>
+            <text x="240" y="384" text-anchor="middle" class="svg-label" font-size="17" fill="#fff" font-weight="900">エンジニア</text>
+            <text x="240" y="402" text-anchor="middle" class="svg-label" font-size="10" fill="rgba(255,255,255,.5)">（あなた）</text>
+          </g>
+
+          <!-- 上：商取引契約 派遣会社 ↔ 派遣先（点線amber） -->
+          <line x1="190" y1="82" x2="290" y2="82" stroke="#FFB547" stroke-width="2" stroke-dasharray="5,5"/>
+          <!-- ラベル（線をマスクするように上書き） -->
+          <rect x="190" y="70" width="100" height="24" rx="12" fill="#0A1628" stroke="rgba(255,181,71,.4)" stroke-width="1"/>
+          <text x="240" y="86" text-anchor="middle" class="svg-label" font-size="11" fill="#FFB547" font-weight="700">労働者派遣契約</text>
+
+          <!-- 左斜め：雇用契約 派遣会社→エンジニア（cyan細線） -->
+          <line x1="105" y1="124" x2="200" y2="330" stroke="#4FC8E0" stroke-width="2.5" marker-end="url(#arr-cyan-a)"/>
+
+          <!-- 右斜め：指揮命令 派遣先→エンジニア（neon太線+glow） -->
+          <line x1="375" y1="124" x2="280" y2="330" stroke="#00E5FF" stroke-width="3.5" filter="url(#glow-a)" marker-end="url(#arr-neon-a)"/>
+
+          <!-- 左ラベル（水平・線中央 152,227 付近） -->
+          <rect x="95" y="215" width="115" height="26" rx="13" fill="#0A1628" stroke="rgba(79,200,224,.5)" stroke-width="1"/>
+          <text x="152" y="232" text-anchor="middle" class="svg-label" font-size="11.5" fill="#4FC8E0" font-weight="700">雇用契約・給与</text>
+
+          <!-- 右ラベル（水平・線中央 327,227 付近） -->
+          <rect x="270" y="213" width="115" height="30" rx="15" fill="#0A1628" stroke="#00E5FF" stroke-width="1.5"/>
+          <text x="327" y="232" text-anchor="middle" class="svg-label" font-size="12" fill="#00E5FF" font-weight="900">★ 指揮命令</text>
+        </svg>
+
+        <div class="mt-6 p-4 rounded-xl bg-white/5 border border-white/10">
+          <p class="text-white/90 text-sm leading-relaxed">
+            <span class="font-bold text-accent">特徴：</span>
+            エンジニアは派遣会社に雇用されているが、<strong class="text-white">実際の業務指示は派遣先から直接受ける</strong>。労働者派遣法に基づく特別な許可が必要。
+          </p>
+        </div>
+      </div>
+
+      <!-- ===== SES ===== -->
+      <div class="diagram-card p-6 sm:p-8" style="border-color:rgba(0,229,255,.35)">
+        <div class="flex items-center justify-between mb-6">
+          <div class="diagram-tag tag-ses">B&nbsp;/&nbsp;SES&nbsp;契約</div>
+          <span class="font-mono text-[10px] text-white/40">準委任契約（民法656条）</span>
+        </div>
+
+        <svg viewBox="0 0 480 440" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto" aria-label="SES契約の構造図">
+          <defs>
+            <marker id="arr-neon-b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+              <path d="M0,0 L10,5 L0,10 z" fill="#00E5FF"/>
+            </marker>
+            <filter id="glow-b" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur stdDeviation="2.5" result="b"/>
+              <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+          </defs>
+
+          <!-- SES会社（左上） -->
+          <g>
+            <rect x="20" y="40" width="170" height="84" rx="12" fill="rgba(0,229,255,0.06)" stroke="rgba(0,229,255,0.5)" stroke-width="1.5"/>
+            <text x="105" y="68" text-anchor="middle" class="svg-label-mono" font-size="10" fill="#4FC8E0" letter-spacing="2">EMPLOYER</text>
+            <text x="105" y="94" text-anchor="middle" class="svg-label" font-size="17" fill="#fff" font-weight="900">SES会社</text>
+            <text x="105" y="112" text-anchor="middle" class="svg-label" font-size="10" fill="rgba(255,255,255,.5)">（所属企業）</text>
+          </g>
+
+          <!-- クライアント（右上） -->
+          <g>
+            <rect x="290" y="40" width="170" height="84" rx="12" fill="rgba(255,181,71,0.08)" stroke="rgba(255,181,71,0.5)" stroke-width="1.5"/>
+            <text x="375" y="68" text-anchor="middle" class="svg-label-mono" font-size="10" fill="#FFB547" letter-spacing="2">CLIENT</text>
+            <text x="375" y="94" text-anchor="middle" class="svg-label" font-size="17" fill="#fff" font-weight="900">クライアント</text>
+            <text x="375" y="112" text-anchor="middle" class="svg-label" font-size="10" fill="rgba(255,255,255,.5)">（常駐先企業）</text>
+          </g>
+
+          <!-- エンジニア -->
+          <g>
+            <rect x="155" y="330" width="170" height="84" rx="12" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/>
+            <text x="240" y="358" text-anchor="middle" class="svg-label-mono" font-size="10" fill="rgba(255,255,255,.7)" letter-spacing="2">WORKER</text>
+            <text x="240" y="384" text-anchor="middle" class="svg-label" font-size="17" fill="#fff" font-weight="900">エンジニア</text>
+            <text x="240" y="402" text-anchor="middle" class="svg-label" font-size="10" fill="rgba(255,255,255,.5)">（あなた）</text>
+          </g>
+
+          <!-- 上：商取引契約 SES会社 ↔ クライアント（点線amber） -->
+          <line x1="190" y1="82" x2="290" y2="82" stroke="#FFB547" stroke-width="2" stroke-dasharray="5,5"/>
+          <rect x="195" y="70" width="90" height="24" rx="12" fill="#0A1628" stroke="rgba(255,181,71,.4)" stroke-width="1"/>
+          <text x="240" y="86" text-anchor="middle" class="svg-label" font-size="11" fill="#FFB547" font-weight="700">準委任契約</text>
+
+          <!-- 左斜め：雇用契約＋指揮命令を1本に SES会社→エンジニア（neon太線+glow） -->
+          <line x1="105" y1="124" x2="200" y2="330" stroke="#00E5FF" stroke-width="3.5" filter="url(#glow-b)" marker-end="url(#arr-neon-b)"/>
+
+          <!-- 左ラベル：2行（雇用契約 / ★指揮命令） -->
+          <rect x="80" y="206" width="145" height="44" rx="10" fill="#0A1628" stroke="#00E5FF" stroke-width="1.5"/>
+          <text x="152" y="222" text-anchor="middle" class="svg-label" font-size="10" fill="#4FC8E0" font-weight="600">雇用契約・給与</text>
+          <line x1="100" y1="228" x2="205" y2="228" stroke="rgba(255,255,255,.12)" stroke-width="1"/>
+          <text x="152" y="243" text-anchor="middle" class="svg-label" font-size="12" fill="#00E5FF" font-weight="900">★ 指揮命令</text>
+
+          <!-- 右斜め：クライアント→エンジニア（赤点線、指示NG） -->
+          <line x1="375" y1="124" x2="280" y2="330" stroke="rgba(255,107,107,.35)" stroke-width="2.5" stroke-dasharray="3,5"/>
+
+          <!-- 右ラベル：×印 + 直接指示はNG -->
+          <g>
+            <rect x="270" y="208" width="115" height="44" rx="10" fill="#0A1628" stroke="rgba(255,107,107,.55)" stroke-width="1.5"/>
+            <text x="287" y="232" text-anchor="middle" class="svg-label" font-size="20" fill="#FF6B6B" font-weight="900">×</text>
+            <text x="335" y="227" text-anchor="middle" class="svg-label" font-size="10" fill="#FF6B6B" font-weight="700">直接の</text>
+            <text x="335" y="243" text-anchor="middle" class="svg-label" font-size="10" fill="#FF6B6B" font-weight="700">業務指示はNG</text>
+          </g>
+        </svg>
+
+        <div class="mt-6 p-4 rounded-xl bg-white/5 border border-white/10">
+          <p class="text-white/90 text-sm leading-relaxed">
+            <span class="font-bold text-neon">特徴：</span>
+            エンジニアはSES会社に雇用され、<strong class="text-white">業務指示も所属企業から受ける</strong>。クライアント先に常駐していても、現場の直接指示には従わない（従ったら偽装請負）。
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 違いの要約ストリップ -->
+    <div class="mt-10 p-5 sm:p-7 rounded-2xl border border-white/10 bg-white/[0.03] flex items-start gap-4">
+      <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-neon/10 border border-neon/40 flex items-center justify-center font-mono text-neon font-bold">=</div>
+      <p class="text-white/85 text-sm sm:text-base leading-relaxed">
+        <span class="text-neon font-bold">★ 指揮命令のラインがどちらに伸びているか</span>を見てください。
+        派遣ではクライアントから、SESではSES会社からそれぞれエンジニアに向かって指示が出ます。
+        この一点が両者を法的に分けています。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FLOW DIAGRAM ========== -->
+<section class="relative bg-white py-20 sm:py-28">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="flex items-center gap-3 mb-5">
+      <span class="accent-bar h-6"></span>
+      <span class="eyebrow">/&nbsp;WORKFLOW&nbsp;EXAMPLE</span>
+    </div>
+    <h2 class="font-display font-black text-ink-900 text-3xl sm:text-4xl lg:text-5xl leading-tight">
+      図解 ② 業務指示の流れ
+    </h2>
+    <p class="mt-5 text-ink-500 text-base sm:text-lg max-w-3xl leading-relaxed">
+      「クライアントから新しい作業を頼まれた」とき、実際にどう動くのか。<br/>
+      実務での指示フローを並べてみるとさらに分かりやすくなります。
+    </p>
+
+    <div class="mt-12 grid lg:grid-cols-2 gap-8">
+
+      <!-- 派遣フロー -->
+      <div class="p-7 sm:p-8 rounded-2xl border border-ink-100" style="background:linear-gradient(160deg,#fff 0%,#FFF8EC 100%);">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="diagram-tag tag-haken">A&nbsp;/&nbsp;派遣</div>
+          <span class="text-ink-500 text-xs font-mono">DIRECT_FLOW</span>
+        </div>
+        <h3 class="font-display font-black text-ink-900 text-xl">
+          指示は<span class="text-[#B8770B]">クライアントから直接</span>
+        </h3>
+        <ol class="mt-6 space-y-4">
+          <li class="flex gap-4">
+            <div class="flex-shrink-0 w-9 h-9 rounded-full bg-[#FFB547] text-white font-display font-black flex items-center justify-center text-sm">1</div>
+            <div class="pt-1">
+              <p class="font-bold text-ink-900 leading-snug">派遣先の上長が新しい作業を指示</p>
+              <p class="mt-1 text-ink-500 text-sm leading-relaxed">「明日までにこの設計書をレビューしてほしい」など、直接エンジニアに依頼。</p>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <div class="flex-shrink-0 w-9 h-9 rounded-full bg-[#FFB547] text-white font-display font-black flex items-center justify-center text-sm">2</div>
+            <div class="pt-1">
+              <p class="font-bold text-ink-900 leading-snug">エンジニアは派遣先の指示に従う</p>
+              <p class="mt-1 text-ink-500 text-sm leading-relaxed">勤怠管理・残業指示・業務内容の変更も派遣先の権限内で行われる。</p>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <div class="flex-shrink-0 w-9 h-9 rounded-full bg-[#FFB547] text-white font-display font-black flex items-center justify-center text-sm">3</div>
+            <div class="pt-1">
+              <p class="font-bold text-ink-900 leading-snug">給与は派遣会社から支払われる</p>
+              <p class="mt-1 text-ink-500 text-sm leading-relaxed">雇用主はあくまで派遣会社。社会保険・労務管理も派遣会社が担う。</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+
+      <!-- SESフロー -->
+      <div class="p-7 sm:p-8 rounded-2xl border border-brand-100" style="background:linear-gradient(160deg,#fff 0%,#E6F8FC 100%);">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="diagram-tag tag-ses" style="background:rgba(0,168,204,.12);color:#00708A;border-color:rgba(0,168,204,.4)">B&nbsp;/&nbsp;SES</div>
+          <span class="text-ink-500 text-xs font-mono">INDIRECT_FLOW</span>
+        </div>
+        <h3 class="font-display font-black text-ink-900 text-xl">
+          指示は<span class="text-brand-600">所属企業を経由</span>
+        </h3>
+        <ol class="mt-6 space-y-4">
+          <li class="flex gap-4">
+            <div class="flex-shrink-0 w-9 h-9 rounded-full bg-brand-500 text-white font-display font-black flex items-center justify-center text-sm">1</div>
+            <div class="pt-1">
+              <p class="font-bold text-ink-900 leading-snug">クライアントは作業範囲をSES会社に依頼</p>
+              <p class="mt-1 text-ink-500 text-sm leading-relaxed">「この機能の開発をお願いしたい」など、エンジニア個人にではなくSES会社に依頼する。</p>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <div class="flex-shrink-0 w-9 h-9 rounded-full bg-brand-500 text-white font-display font-black flex items-center justify-center text-sm">2</div>
+            <div class="pt-1">
+              <p class="font-bold text-ink-900 leading-snug">SES会社からエンジニアに指示</p>
+              <p class="mt-1 text-ink-500 text-sm leading-relaxed">所属企業のリーダー／マネージャが指揮命令系統を担う。勤怠もSES会社が管理。</p>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <div class="flex-shrink-0 w-9 h-9 rounded-full bg-brand-500 text-white font-display font-black flex items-center justify-center text-sm">3</div>
+            <div class="pt-1">
+              <p class="font-bold text-ink-900 leading-snug">クライアントは「成果」に対して報酬を支払う</p>
+              <p class="mt-1 text-ink-500 text-sm leading-relaxed">準委任契約のため、納期や個別タスクの指示・管理はSES会社側で完結する。</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+
+    </div>
+
+    <p class="mt-10 text-ink-500 text-sm leading-relaxed max-w-3xl">
+      ※ 実務上は、現場のチームリーダーや他社のメンバーと協働するため指示系統が曖昧になりやすいのですが、<br/>
+      <strong class="text-ink-900">SESの場合は「クライアントが直接エンジニア個人を指揮命令する状態」になっていたら違法（偽装請負）です。</strong>
+    </p>
+  </div>
+</section>
+
+<!-- ========== COMPARE TABLE ========== -->
+<section id="compare" class="relative bg-ink-50 py-20 sm:py-28">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="flex items-center gap-3 mb-5">
+      <span class="accent-bar h-6"></span>
+      <span class="eyebrow">/&nbsp;COMPARISON&nbsp;MATRIX</span>
+    </div>
+    <h2 class="font-display font-black text-ink-900 text-3xl sm:text-4xl lg:text-5xl leading-tight">
+      詳細比較表
+    </h2>
+    <p class="mt-5 text-ink-500 text-base sm:text-lg max-w-3xl leading-relaxed">
+      派遣・SES・請負（参考）の3形態を、主要9項目で並べました。
+    </p>
+
+    <div class="mt-10 bg-white rounded-2xl shadow-[0_24px_60px_-30px_rgba(10,22,40,.18)] overflow-hidden border border-ink-100">
+      <div class="table-scroll">
+        <table class="cmp-table">
+          <thead>
+            <tr>
+              <th>項目</th>
+              <th>派遣</th>
+              <th style="background:#00708A;">SES</th>
+              <th>請負（参考）</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="col-label">契約形態</td>
+              <td class="col-haken">労働者派遣契約</td>
+              <td class="col-ses">準委任契約<br/><span class="text-ink-500 text-xs">（民法656条）</span></td>
+              <td class="col-ukeoi">請負契約<br/><span class="text-ink-500 text-xs">（民法632条）</span></td>
+            </tr>
+            <tr>
+              <td class="col-label">指揮命令権</td>
+              <td class="col-haken"><span class="highlight-amber">派遣先（クライアント）</span></td>
+              <td class="col-ses"><span class="highlight-cyan" style="color:#00708A">所属企業（SES会社）</span></td>
+              <td class="col-ukeoi">受託企業</td>
+            </tr>
+            <tr>
+              <td class="col-label">業務上の指示</td>
+              <td class="col-haken">派遣先から直接</td>
+              <td class="col-ses">所属企業のリーダー経由</td>
+              <td class="col-ukeoi">受託企業内で完結</td>
+            </tr>
+            <tr>
+              <td class="col-label">雇用主</td>
+              <td class="col-haken">派遣会社</td>
+              <td class="col-ses">SES会社</td>
+              <td class="col-ukeoi">受託企業</td>
+            </tr>
+            <tr>
+              <td class="col-label">給与・社保</td>
+              <td class="col-haken">派遣会社が支払い／加入</td>
+              <td class="col-ses">SES会社が支払い／加入</td>
+              <td class="col-ukeoi">受託企業が支払い／加入</td>
+            </tr>
+            <tr>
+              <td class="col-label">必要な許可</td>
+              <td class="col-haken">厚労省の<br/>労働者派遣事業許可</td>
+              <td class="col-ses">不要</td>
+              <td class="col-ukeoi">不要</td>
+            </tr>
+            <tr>
+              <td class="col-label">期間制限</td>
+              <td class="col-haken">原則3年<br/><span class="text-ink-500 text-xs">（同一組織単位）</span></td>
+              <td class="col-ses">制限なし</td>
+              <td class="col-ukeoi">制限なし</td>
+            </tr>
+            <tr>
+              <td class="col-label">報酬の対象</td>
+              <td class="col-haken">労働時間</td>
+              <td class="col-ses">業務遂行（労働力提供）</td>
+              <td class="col-ukeoi">成果物の完成</td>
+            </tr>
+            <tr>
+              <td class="col-label">主な法的根拠</td>
+              <td class="col-haken">労働者派遣法</td>
+              <td class="col-ses">民法（準委任）</td>
+              <td class="col-ukeoi">民法（請負）</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <p class="mt-6 text-ink-500 text-xs leading-relaxed">
+      ※ 請負契約は「成果物の完成」に対して報酬を支払う点でSES（業務遂行型）と異なります。指揮命令権の所在は同じ（受託企業内）です。
+    </p>
+  </div>
+</section>
+
+<!-- ========== MERIT / DEMERIT ========== -->
+<section id="meridemeri" class="relative bg-white py-20 sm:py-28">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="flex items-center gap-3 mb-5">
+      <span class="accent-bar h-6"></span>
+      <span class="eyebrow">/&nbsp;PROS&nbsp;&amp;&nbsp;CONS</span>
+    </div>
+    <h2 class="font-display font-black text-ink-900 text-3xl sm:text-4xl lg:text-5xl leading-tight">
+      エンジニア視点のメリット・デメリット
+    </h2>
+    <p class="mt-5 text-ink-500 text-base sm:text-lg max-w-3xl leading-relaxed">
+      「どちらが良い／悪い」ではなく、それぞれに性質の違うトレードオフがあります。
+    </p>
+
+    <!-- 派遣 -->
+    <div class="mt-12">
+      <div class="flex items-center gap-3 mb-6">
+        <div class="diagram-tag tag-haken">A&nbsp;/&nbsp;派遣</div>
+        <h3 class="font-display font-black text-ink-900 text-xl sm:text-2xl">派遣契約で働く場合</h3>
+      </div>
+      <div class="grid md:grid-cols-2 gap-5">
+        <div class="pmcard merit card-hover">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="pm-icon merit">+</span>
+            <h4 class="font-display font-black text-ink-900 text-lg">Merit</h4>
+          </div>
+          <ul class="space-y-3 text-ink-700 text-[15px] leading-relaxed">
+            <li class="flex gap-2"><span class="text-brand-500 font-bold">▸</span><span><strong>指示系統が明確</strong>。誰の指示で動くのか迷いにくい。</span></li>
+            <li class="flex gap-2"><span class="text-brand-500 font-bold">▸</span><span>派遣先の意思決定に近い距離で働ける（業務の実態に直接触れる）。</span></li>
+            <li class="flex gap-2"><span class="text-brand-500 font-bold">▸</span><span>派遣会社が労務管理を担うため、契約面・労働条件は法律で手厚く保護される。</span></li>
+          </ul>
+        </div>
+        <div class="pmcard demerit card-hover">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="pm-icon demerit">−</span>
+            <h4 class="font-display font-black text-ink-900 text-lg">Demerit</h4>
+          </div>
+          <ul class="space-y-3 text-ink-700 text-[15px] leading-relaxed">
+            <li class="flex gap-2"><span class="text-accent font-bold">▸</span><span><strong>同一組織単位で原則3年の期間制限</strong>がある。</span></li>
+            <li class="flex gap-2"><span class="text-accent font-bold">▸</span><span>派遣先のルール・文化に強く規定される。自社のキャリア育成は受けにくい。</span></li>
+            <li class="flex gap-2"><span class="text-accent font-bold">▸</span><span>業務範囲が派遣契約の枠を超えにくく、裁量は限定的になりやすい。</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- SES -->
+    <div class="mt-14">
+      <div class="flex items-center gap-3 mb-6">
+        <div class="diagram-tag tag-ses" style="background:rgba(0,168,204,.12);color:#00708A;border-color:rgba(0,168,204,.4)">B&nbsp;/&nbsp;SES</div>
+        <h3 class="font-display font-black text-ink-900 text-xl sm:text-2xl">SES契約で働く場合</h3>
+      </div>
+      <div class="grid md:grid-cols-2 gap-5">
+        <div class="pmcard merit card-hover">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="pm-icon merit">+</span>
+            <h4 class="font-display font-black text-ink-900 text-lg">Merit</h4>
+          </div>
+          <ul class="space-y-3 text-ink-700 text-[15px] leading-relaxed">
+            <li class="flex gap-2"><span class="text-brand-500 font-bold">▸</span><span><strong>期間制限がない</strong>ため、同じ現場で深く知見を積みやすい。</span></li>
+            <li class="flex gap-2"><span class="text-brand-500 font-bold">▸</span><span>所属企業のキャリア育成・評価制度を継続的に受けられる。</span></li>
+            <li class="flex gap-2"><span class="text-brand-500 font-bold">▸</span><span>多様な業界・技術スタックの現場に関わるチャンスが広い。</span></li>
+          </ul>
+        </div>
+        <div class="pmcard demerit card-hover">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="pm-icon demerit">−</span>
+            <h4 class="font-display font-black text-ink-900 text-lg">Demerit</h4>
+          </div>
+          <ul class="space-y-3 text-ink-700 text-[15px] leading-relaxed">
+            <li class="flex gap-2"><span class="text-accent font-bold">▸</span><span>現場で指示系統が曖昧になりやすく、<strong>偽装請負化のリスク</strong>がある。</span></li>
+            <li class="flex gap-2"><span class="text-accent font-bold">▸</span><span>多重下請構造に入ると単価・労働条件が悪化しやすい。</span></li>
+            <li class="flex gap-2"><span class="text-accent font-bold">▸</span><span>所属企業のマネジメント品質に大きく依存する（当たり外れがある）。</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== ILLEGAL (偽装請負) ========== -->
+<section id="illegal" class="relative bg-ink-50 py-20 sm:py-28">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="flex items-center gap-3 mb-5">
+      <span class="accent-bar h-6"></span>
+      <span class="eyebrow" style="color:#D14545">/&nbsp;LEGAL&nbsp;WARNING</span>
+    </div>
+    <h2 class="font-display font-black text-ink-900 text-3xl sm:text-4xl lg:text-5xl leading-tight">
+      もっとも警戒すべき「偽装請負」とは
+    </h2>
+    <p class="mt-5 text-ink-500 text-base sm:text-lg max-w-3xl leading-relaxed">
+      契約上はSES（準委任）でも、実態がクライアントによる直接指揮命令になっていれば違法です。<br/>
+      厚生労働省も明確にこれを禁止しています。
+    </p>
+
+    <div class="mt-10 warn-box p-7 sm:p-9">
+      <div class="flex items-start gap-4">
+        <div class="flex-shrink-0">
+          <div class="diagram-tag tag-illegal">!&nbsp;ILLEGAL</div>
+        </div>
+        <div>
+          <h3 class="font-display font-black text-ink-900 text-xl sm:text-2xl leading-snug">
+            偽装請負＝SES／請負の皮をかぶった違法派遣
+          </h3>
+          <p class="mt-3 text-ink-700 leading-relaxed">
+            厚生労働省のガイドラインでは、<strong>「請負（準委任）形式でも、注文主と労働者の間に指揮命令関係があれば労働者派遣に該当」</strong>とされており、必要な派遣事業許可なしに行えば違法（偽装請負）になります。
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-7 sm:mt-9 grid md:grid-cols-2 gap-5">
+        <div class="bg-white rounded-xl p-5 border border-ink-100">
+          <div class="text-warn font-display font-black text-sm tracking-wider mb-3">⚠ こうなっていたら危険サイン</div>
+          <ul class="space-y-2.5 text-ink-700 text-sm leading-relaxed">
+            <li class="flex gap-2"><span class="text-warn">●</span>クライアントの上長が、エンジニア本人に直接タスク指示している</li>
+            <li class="flex gap-2"><span class="text-warn">●</span>クライアントが勤怠・残業を直接管理している</li>
+            <li class="flex gap-2"><span class="text-warn">●</span>クライアントの社内ルールが個人レベルで適用されている</li>
+            <li class="flex gap-2"><span class="text-warn">●</span>所属企業の現場リーダーが存在しない、または機能していない</li>
+          </ul>
+        </div>
+        <div class="bg-white rounded-xl p-5 border border-ink-100">
+          <div class="text-brand-600 font-display font-black text-sm tracking-wider mb-3">✓ 適正な状態の目安</div>
+          <ul class="space-y-2.5 text-ink-700 text-sm leading-relaxed">
+            <li class="flex gap-2"><span class="text-brand-500">●</span>業務指示は所属企業のリーダー経由で届く</li>
+            <li class="flex gap-2"><span class="text-brand-500">●</span>勤怠管理・評価は所属企業が一貫して行う</li>
+            <li class="flex gap-2"><span class="text-brand-500">●</span>クライアントとは「業務委託先と委託元」の関係性が保たれている</li>
+            <li class="flex gap-2"><span class="text-brand-500">●</span>契約書に業務範囲・体制・指揮命令系統が明記されている</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="mt-7 text-ink-500 text-xs leading-relaxed">
+        参照：<a href="https://www.mhlw.go.jp/content/001328190.pdf" target="_blank" rel="noopener" class="underline text-brand-600 hover:text-brand-500"><span class="gov-badge">厚労省</span>労働者派遣・請負を適正に行うためのガイド (PDF)</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FELLOWSHIP POSITION ========== -->
+<section class="relative bg-white py-20 sm:py-28">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="grid lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+      <div class="lg:col-span-5">
+        <div class="flex items-center gap-3 mb-5">
+          <span class="accent-bar h-6"></span>
+          <span class="eyebrow">/&nbsp;OUR&nbsp;POSITION</span>
+        </div>
+        <h2 class="font-display font-black text-ink-900 text-3xl sm:text-4xl leading-[1.2]">
+          フェローシップは、<br/>
+          <span class="text-brand-600">どちらにも対応できる</span>立場です。
+        </h2>
+        <p class="mt-5 text-ink-500 text-base leading-[1.95]">
+          当社は<strong class="text-ink-900">労働者派遣事業の許可を取得済み</strong>。
+          そのため、案件特性・クライアント要件・エンジニア本人の希望に応じて、<strong class="text-ink-900">派遣契約と準委任契約のどちらでも提供</strong>することが可能です。
+        </p>
+
+        <!-- 両対応ビジュアル -->
+        <div class="mt-7 p-5 rounded-2xl border border-ink-100" style="background:linear-gradient(135deg,#F5F7FA 0%,#E6F8FC 100%);">
+          <div class="font-mono text-[10px] tracking-[.25em] text-ink-500 mb-3">DUAL&nbsp;MODE&nbsp;CAPABILITY</div>
+          <div class="flex items-center gap-3">
+            <div class="flex-1 px-4 py-3 rounded-xl bg-white border border-[#FFB547]/40 text-center">
+              <div class="text-[10px] font-mono tracking-[.2em] text-[#B8770B] font-bold">MODE&nbsp;A</div>
+              <div class="mt-1 font-display font-black text-ink-900 text-base">派遣 契約</div>
+            </div>
+            <div class="font-mono text-ink-300 font-bold text-sm">&amp;</div>
+            <div class="flex-1 px-4 py-3 rounded-xl bg-white border border-brand-400/50 text-center">
+              <div class="text-[10px] font-mono tracking-[.2em] text-brand-600 font-bold">MODE&nbsp;B</div>
+              <div class="mt-1 font-display font-black text-ink-900 text-base">準委任 契約</div>
+            </div>
+          </div>
+          <p class="mt-3 text-ink-500 text-xs leading-relaxed">どちらの形態でも、適法な指揮命令系統と労務管理を当社が責任を持って構築します。</p>
+        </div>
+
+        <a href="index.html#why" class="mt-7 inline-flex items-center gap-2 bg-brand-500 hover:bg-brand-600 text-white px-6 py-3 rounded-full font-bold text-sm transition btn-glow">
+          フェローシップの体制を見る →
+        </a>
+      </div>
+
+      <div class="lg:col-span-7 grid sm:grid-cols-2 gap-4">
+        <div class="p-6 rounded-2xl border border-ink-100 card-hover" style="background:linear-gradient(160deg,#fff 0%,#F5F7FA 100%);">
+          <div class="font-mono text-[11px] tracking-[.25em] text-brand-600 font-bold mb-3">01 / LICENSE</div>
+          <h3 class="font-display font-black text-ink-900 text-lg leading-snug">労働者派遣事業<br/>許可取得済</h3>
+          <p class="mt-3 text-ink-500 text-sm leading-relaxed">厚生労働大臣による労働者派遣事業の許可を取得しており、適法な派遣サービスを提供できる事業者です。</p>
+        </div>
+        <div class="p-6 rounded-2xl border border-ink-100 card-hover" style="background:linear-gradient(160deg,#fff 0%,#F5F7FA 100%);">
+          <div class="font-mono text-[11px] tracking-[.25em] text-brand-600 font-bold mb-3">02 / DUAL&nbsp;MODE</div>
+          <h3 class="font-display font-black text-ink-900 text-lg leading-snug">派遣／準委任<br/>どちらも提案可</h3>
+          <p class="mt-3 text-ink-500 text-sm leading-relaxed">案件特性・クライアント要件・本人希望に合わせ、最適な契約形態を選択できる柔軟性があります。</p>
+        </div>
+        <div class="p-6 rounded-2xl border border-ink-100 card-hover" style="background:linear-gradient(160deg,#fff 0%,#F5F7FA 100%);">
+          <div class="font-mono text-[11px] tracking-[.25em] text-brand-600 font-bold mb-3">03 / EMPLOYMENT</div>
+          <h3 class="font-display font-black text-ink-900 text-lg leading-snug">正社員雇用が前提</h3>
+          <p class="mt-3 text-ink-500 text-sm leading-relaxed">契約形態にかかわらず、エンジニアは当社の正社員として雇用。年間休日・社会保険・キャリア支援を継続提供します。</p>
+        </div>
+        <div class="p-6 rounded-2xl border border-ink-100 card-hover" style="background:linear-gradient(160deg,#fff 0%,#F5F7FA 100%);">
+          <div class="font-mono text-[11px] tracking-[.25em] text-brand-600 font-bold mb-3">04 / COMPLIANCE</div>
+          <h3 class="font-display font-black text-ink-900 text-lg leading-snug">契約と実態の整合</h3>
+          <p class="mt-3 text-ink-500 text-sm leading-relaxed">派遣契約では派遣先指揮、準委任契約では当社指揮を厳守。契約形式と業務実態の不一致（偽装請負化）を防ぎます。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FAQ ========== -->
+<section id="faq" class="relative bg-ink-50 py-20 sm:py-28">
+  <div class="max-w-4xl mx-auto px-5 sm:px-8">
+    <div class="flex items-center gap-3 mb-5">
+      <span class="accent-bar h-6"></span>
+      <span class="eyebrow">/&nbsp;FAQ</span>
+    </div>
+    <h2 class="font-display font-black text-ink-900 text-3xl sm:text-4xl lg:text-5xl leading-tight">
+      よくある質問
+    </h2>
+
+    <div class="mt-10 space-y-3">
+      <details class="faq">
+        <summary>
+          <span class="faq-q">Q.</span>
+          <span class="flex-1 leading-snug">「SESは派遣の一種」と聞いたのですが本当ですか？</span>
+          <span class="acc-icon">＋</span>
+        </summary>
+        <div class="faq-body">
+          正確には<strong class="text-ink-900">誤り</strong>です。SESは民法上の準委任契約、派遣は労働者派遣法に基づく派遣契約で、契約形態そのものが異なります。最大の違いは<strong>指揮命令権の所在</strong>で、SESは所属企業（SES会社）、派遣はクライアント企業に置かれます。
+        </div>
+      </details>
+
+      <details class="faq">
+        <summary>
+          <span class="faq-q">Q.</span>
+          <span class="flex-1 leading-snug">客先常駐＝SESという理解で合っていますか？</span>
+          <span class="acc-icon">＋</span>
+        </summary>
+        <div class="faq-body">
+          「客先常駐」は<strong class="text-ink-900">働く場所や形態を指す言葉</strong>で、契約形態とは別の概念です。SES契約でも派遣契約でも、結果的に客先で常駐勤務になることがあります。dodaの解説でも整理されているとおり、客先常駐／SES／派遣はそれぞれ独立した概念として理解する必要があります。
+        </div>
+      </details>
+
+      <details class="faq">
+        <summary>
+          <span class="faq-q">Q.</span>
+          <span class="flex-1 leading-snug">SESで働いていますが、クライアントから直接指示を受けています。これは違法ですか？</span>
+          <span class="acc-icon">＋</span>
+        </summary>
+        <div class="faq-body">
+          実態としてクライアントが指揮命令権を持っている場合、それは<strong class="text-warn">偽装請負（実態的な違法派遣）に該当する可能性</strong>があります。厚生労働省ガイドラインでも明確に違法と示されています。まずは所属企業の人事・コンプライアンス部門に確認してください。
+        </div>
+      </details>
+
+      <details class="faq">
+        <summary>
+          <span class="faq-q">Q.</span>
+          <span class="flex-1 leading-snug">給料はどちらの形態のほうが高いですか？</span>
+          <span class="acc-icon">＋</span>
+        </summary>
+        <div class="faq-body">
+          一概には言えません。<strong>多重下請構造を経由しない直契約のSES</strong>、または<strong>専門職向けの特定派遣的な契約</strong>は単価が高くなる傾向があります。逆に、間に何社も入る多重下請構造の場合は、契約形態にかかわらずエンジニアへの支払い額が圧縮されやすくなります。
+        </div>
+      </details>
+
+      <details class="faq">
+        <summary>
+          <span class="faq-q">Q.</span>
+          <span class="flex-1 leading-snug">フリーランスエンジニアが結ぶ契約はSESですか派遣ですか？</span>
+          <span class="acc-icon">＋</span>
+        </summary>
+        <div class="faq-body">
+          フリーランスの場合、雇用関係がないため<strong class="text-ink-900">「準委任契約」または「請負契約」</strong>を直接エージェントやクライアントと結ぶのが一般的です。労働者派遣契約は「雇用されている労働者」を派遣する契約のため、フリーランスとは制度上別物です。
+        </div>
+      </details>
+
+      <details class="faq">
+        <summary>
+          <span class="faq-q">Q.</span>
+          <span class="flex-1 leading-snug">転職時、SESと派遣をどう見分ければ良いですか？</span>
+          <span class="acc-icon">＋</span>
+        </summary>
+        <div class="faq-body">
+          求人票・契約書に明記された<strong>「契約形態」</strong>を確認するのが最も確実です。労働者派遣事業の許可番号（派13-XXXXXX形式）が記載されていれば派遣事業者です。また、面接時に「指揮命令はどこから出るか」「現場リーダーは自社／クライアントどちらか」を質問することも有効です。
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CTA ========== -->
+<section class="relative cta-bg noise overflow-hidden">
+  <div class="absolute inset-0 grid-pattern pointer-events-none"></div>
+  <div class="relative max-w-5xl mx-auto px-5 sm:px-8 py-20 sm:py-28 text-center">
+    <span class="eyebrow text-brand-300">/&nbsp;NEXT&nbsp;STEP</span>
+    <h2 class="mt-5 font-display font-black text-white text-3xl sm:text-4xl lg:text-5xl leading-tight">
+      契約形態の選択肢を、<br class="sm:hidden"/>キャリアの自由度に。
+    </h2>
+    <p class="mt-6 text-white/75 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
+      フェローシップは派遣免許保有 × 派遣／準委任の両対応で、エンジニアごとに最適な契約形態を選択できる体制を整えています。
+    </p>
+    <div class="mt-10 flex flex-wrap justify-center gap-3">
+      <a href="index.html#apply" class="inline-flex items-center gap-2 bg-gradient-to-r from-neon to-brand-400 text-ink-900 px-8 py-3.5 rounded-full font-bold text-sm btn-glow transition">
+        採用ページへ戻る →
+      </a>
+      <a href="index.html#jobs" class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/15 text-white px-8 py-3.5 rounded-full font-medium text-sm border border-white/20 transition">
+        案件一覧を見る
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer class="bg-ink-900 text-white/70">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 py-14">
+    <div class="grid sm:grid-cols-2 gap-8 items-start">
+      <div>
+        <div class="flex items-center gap-2 mb-4">
+          <img class="block h-10 w-auto" src="https://www.f-ship.jp/_img/ja/resource/3/logo/_/" alt="Fellowship" onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-flex';"/>
+          <span style="display:none;font-family:'Zen Kaku Gothic New',sans-serif;font-weight:900;font-size:22px;color:#fff;">Fellowship</span>
+        </div>
+        <p class="text-sm leading-relaxed text-white/55">
+          株式会社フェローシップ<br/>
+          BUILD A GLOBAL CAREER.
+        </p>
+      </div>
+      <div class="text-sm">
+        <div class="font-mono text-[11px] tracking-[.25em] text-brand-300 mb-3">/&nbsp;LINKS</div>
+        <ul class="space-y-2">
+          <li><a href="index.html" class="hover:text-white transition">エンジニア採用トップ</a></li>
+          <li><a href="index.html#why" class="hover:text-white transition">選ばれる理由</a></li>
+          <li><a href="index.html#jobs" class="hover:text-white transition">案件一覧</a></li>
+          <li><a href="index.html#faq" class="hover:text-white transition">FAQ</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="sep my-10"></div>
+    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 text-xs text-white/40">
+      <p>© Fellowship Co., Ltd. All rights reserved.</p>
+      <p class="font-mono">SES&nbsp;vs&nbsp;HAKEN&nbsp;/&nbsp;EDUCATIONAL&nbsp;ARTICLE</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
